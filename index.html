@@ -1,1 +1,99 @@
-<html><body><h1>Hello Cendy Wang's World!</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandy | Senior AI Architect & Technology Consultant</title>
+    <!-- 引入 Tailwind CSS 用于快速排版 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-blue-500 selection:text-white">
+
+    <!-- 导航栏 -->
+    <nav class="max-w-4xl mx-auto px-6 py-8 flex justify-between items-center border-b border-gray-800">
+        <span class="text-xl font-bold tracking-tight">Cendy Wang<span class="text-blue-500">.</span>dev</span>
+        <div class="space-x-6 text-sm text-gray-400">
+            <a href="#about" class="hover:text-white transition">About</a>
+            <a href="#experience" class="hover:text-white transition">Experience</a>
+            <a href="#projects" class="hover:text-white transition">Projects</a>
+            <a href="mailto:cendymailsL@gmail.com" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- 主体区域 -->
+    <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
+        
+        <!-- Hero Section -->
+        <section id="about" class="space-y-6">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                Building Next-Gen <br><span class="gradient-text">AI Infrastructure & High-Concurrency Systems</span>
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl leading-relaxed">
+                Hi, I'm Sandy, a Senior AI Architect and Tech Solopreneur based in China. With a Master’s in Computer Science from <strong>Zhejiang University</strong> and a solid track record as an ex-Senior Technical Expert <strong>(P8) at Alibaba</strong>, I specialize in heterogeneous computing optimization, enterprise Multi-Agent workflows, and secure, localized RAG deployments.
+            </p>
+        </section>
+
+        <!-- 核心实力徽章 -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Background</div>
+                <div class="text-sm font-semibold">Ex-Alibaba P8</div>
+            </div>
+            <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Education</div>
+                <div class="text-sm font-semibold">Zhejiang Univ. MS</div>
+            </div>
+            <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Core Tech</div>
+                <div class="text-sm font-semibold">Go / Python / K8s</div>
+            </div>
+            <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Focus</div>
+                <div class="text-sm font-semibold">Multi-Agent & RAG</div>
+            </div>
+        </section>
+
+        <!-- 核心项目展示 -->
+        <section id="projects" class="space-y-8">
+            <h2 class="text-2xl font-bold tracking-tight border-l-4 border-blue-500 pl-3">Selected Architecture & AI Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 项目 1 -->
+                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
+                    <span class="text-xs font-mono px-2 py-1 bg-blue-950 text-blue-400 border border-blue-900 rounded">Go / Network Protocol</span>
+                    <h3 class="text-lg font-bold">Project Prism: Enterprise API Gateway</h3>
+                    <p class="text-sm text-gray-400">A high-concurrency enterprise AI API gateway built to handle complex token routing, balance local 4090 GPU pools, and enforce data sovereignty via zero-leak localized domains.</p>
+                </div>
+                <!-- 项目 2 -->
+                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
+                    <span class="text-xs font-mono px-2 py-1 bg-purple-950 text-purple-400 border border-purple-900 rounded">Python / LLM / Orchestration</span>
+                    <h3 class="text-lg font-bold">Multi-Agent Content Orchestration</h3>
+                    <p class="text-sm text-gray-400">Production-grade Multi-Agent workflow systems engineered on top of OpenClaw and Hermes. Successfully decoupled complex media asset production and automated cross-platform delivery.</p>
+                </div>
+                <!-- 项目 3 -->
+                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
+                    <span class="text-xs font-mono px-2 py-1 bg-green-950 text-green-400 border border-green-900 rounded">Heterogeneous Computing</span>
+                    <h3 class="text-lg font-bold">Medical AI "Smart Base" Optimization</h3>
+                    <p class="text-sm text-gray-400">Optimized custom LLM and RAG framework throughput on domestic hardware (Iluvatar 100A GPUs & Yizhi CPUs), achieving a benchmark of 22+ tokens/s at 16-concurrency for a listed medical corporation.</p>
+                </div>
+                <!-- 项目 4 -->
+                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
+                    <span class="text-xs font-mono px-2 py-1 bg-amber-950 text-amber-400 border border-amber-900 rounded">K8s / SaaS</span>
+                    <h3 class="text-lg font-bold">Project Shrimp Farm</h3>
+                    <p class="text-sm text-gray-400">A SaaS platform designed for high-density hosting and containerized orchestration of OpenClaw agents utilizing production Kubernetes clusters and FastAPI control planes.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="max-w-4xl mx-auto px-6 py-12 border-t border-gray-800 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Sandy. Driven by AI, Engineered for Scale.</p>
+    </footer>
+
+</body>
+</html>
