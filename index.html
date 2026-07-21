@@ -1,140 +1,564 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J6JGNM804S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6JGNM804S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J6JGNM804S');
 
-  gtag('config', 'G-J6JGNM804S');
+    function trackClick(eventName, linkName, linkLocation, linkUrl) {
+      if (typeof gtag !== 'function') return;
+      gtag('event', eventName, {
+        link_name: linkName,
+        link_location: linkLocation,
+        link_url: linkUrl
+      });
+    }
+  </script>
 
-  function trackClick(eventName, linkName, linkLocation, linkUrl) {
-    if (typeof gtag !== 'function') return;
-    gtag('event', eventName, {
-      link_name: linkName,
-      link_location: linkLocation,
-      link_url: linkUrl
-    });
-  }
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cain | AI Infrastructure Architect & Open Source Creator</title>
-    <!-- 引入 Tailwind CSS 用于快速排版 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        body { background-color: #0b0f19; color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Cain Wang builds dependable AI agent systems across memory policy, evidence-grounded workflows, Kubernetes-native runtimes, and private multi-agent operations in active use.">
+  <meta name="author" content="Cain Wang">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cainarch.com/">
+  <meta property="og:title" content="Cain Wang — Agent Systems, Memory & AI Infrastructure">
+  <meta property="og:description" content="Open-source projects, research prototypes, and private systems in active use across agent memory, bounded workflows, multi-agent operations, and AI infrastructure.">
+  <meta property="og:site_name" content="Cain Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cain Wang — Agent Systems, Memory & AI Infrastructure">
+  <meta name="twitter:description" content="Open-source projects, research prototypes, and private systems in active use across agent memory, bounded workflows, multi-agent operations, and AI infrastructure.">
+
+  <link rel="canonical" href="https://cainarch.com/">
+  <link rel="stylesheet" href="styles.css">
+  <title>Cain Wang — Agent Systems, Memory & AI Infrastructure</title>
 </head>
-<body class="min-h-screen selection:bg-blue-500 selection:text-white">
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- 导航栏 -->
-    <nav class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-5 sm:justify-between sm:items-center border-b border-gray-800">
-        <span class="text-xl font-bold tracking-tight">Cain<span class="text-emerald-400">.</span>dev</span>
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
-            <a href="#open-source" class="hover:text-white transition">Open Source</a>
-            <a href="#enterprise" class="hover:text-white transition">Enterprise</a>
-            <a href="mailto:cendymails@gmail.com" onclick="trackClick('contact_click', 'email', 'nav', this.href)" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition">Contact</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Cain Wang home">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span class="brand-text">Cain Wang</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a
+          class="nav-cta"
+          href="https://yuyunai.cn/"
+          target="_blank"
+          rel="noreferrer"
+          onclick="trackClick('outbound_click', 'yuyunai', 'nav', this.href)"
+        >Enterprise work <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> Independent AI systems builder</p>
+          <h1>Building dependable<br><span>AI agent systems.</span></h1>
+          <p class="hero-lede">
+            I research agent memory, build evidence-grounded workflows and Kubernetes-native runtimes,
+            and operate a private multi-agent content system in active use.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore projects</a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/cendywang"
+              target="_blank"
+              rel="noreferrer"
+              onclick="trackClick('outbound_click', 'github_profile', 'hero', this.href)"
+            >GitHub <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-    </nav>
 
-    <!-- 主体区域 -->
-    <main class="max-w-4xl mx-auto px-6 py-16 space-y-20">
-        
-        <!-- Hero Section -->
-        <section class="space-y-8">
-            <div class="space-y-5">
-                <p class="text-sm font-semibold uppercase tracking-widest text-emerald-400">Personal Geek Card</p>
-                <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-none">
-                    Cain
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed">
-                    AI Infrastructure Architect <span class="text-gray-600">|</span> Open Source Creator
-                </p>
+        <aside class="hero-panel" aria-label="Current focus">
+          <div class="panel-kicker">Current systems work</div>
+          <ol class="focus-list">
+            <li>
+              <span class="focus-index">01</span>
+              <div>
+                <strong>Agent memory policy</strong>
+                <span>Retention, revision, retrieval, context budgets</span>
+              </div>
+            </li>
+            <li>
+              <span class="focus-index">02</span>
+              <div>
+                <strong>Bounded agent workflows</strong>
+                <span>Evidence, validation, repair, human review</span>
+              </div>
+            </li>
+            <li>
+              <span class="focus-index">03</span>
+              <div>
+                <strong>Private runtime infrastructure</strong>
+                <span>Kubernetes, lifecycle, state, observability</span>
+              </div>
+            </li>
+            <li>
+              <span class="focus-index">04</span>
+              <div>
+                <strong>Multi-agent operations</strong>
+                <span>Daily scanning, research, review, publishing handoff</span>
+              </div>
+            </li>
+          </ol>
+          <div class="panel-footer">
+            <span>Research</span><i aria-hidden="true"></i><span>Product</span><i aria-hidden="true"></i><span>Engineering</span><i aria-hidden="true"></i><span>Operations</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Featured projects</p>
+            <h2>One problem space.<br>Three system layers.</h2>
+          </div>
+          <p>
+            Each project is a public, inspectable artifact. Status labels and limitations are part of the work—not footnotes hidden after the claim.
+          </p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card project-card-featured">
+            <div class="project-visual visual-memory" aria-hidden="true">
+              <div class="memory-orbit orbit-one"></div>
+              <div class="memory-orbit orbit-two"></div>
+              <div class="memory-core">M</div>
+              <span class="memory-node node-one"></span>
+              <span class="memory-node node-two"></span>
+              <span class="memory-node node-three"></span>
             </div>
-            <div class="flex flex-wrap gap-3">
-                <a href="https://github.com/cendywang" onclick="trackClick('outbound_click', 'github_profile', 'hero', this.href)" class="px-4 py-2 bg-gray-900/70 border border-gray-800 rounded-lg text-sm font-semibold hover:border-gray-600 hover:text-white transition">GitHub</a>
-                <a href="https://twitter.com/SD_Builds" onclick="trackClick('outbound_click', 'twitter_profile', 'hero', this.href)" class="px-4 py-2 bg-gray-900/70 border border-gray-800 rounded-lg text-sm font-semibold hover:border-gray-600 hover:text-white transition">Twitter</a>
-                <a href="mailto:cendymails@gmail.com" onclick="trackClick('contact_click', 'email', 'hero', this.href)" class="px-4 py-2 bg-gray-900/70 border border-gray-800 rounded-lg text-sm font-semibold hover:border-gray-600 hover:text-white transition">Email</a>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-number">01</span>
+                <div class="tag-row">
+                  <span class="tag tag-research">Research</span>
+                  <span class="tag tag-alpha">Experimental Alpha</span>
+                </div>
+              </div>
+              <h3>Memory Policy Lab</h3>
+              <p class="project-summary">
+                An experimental reference implementation and evaluation harness for how agents retain, compress, retrieve, revise, and assemble memory under context budgets.
+              </p>
+              <div class="project-details">
+                <div>
+                  <span class="detail-label">Demonstrates</span>
+                  <p>Agent memory architecture, explicit context policy, source lineage, deterministic evaluation, and bounded provider experiments.</p>
+                </div>
+                <div>
+                  <span class="detail-label">Current boundary</span>
+                  <p>Research software. No production-readiness, unlimited-memory, or better-than-RAG performance claim.</p>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a
+                  class="text-link"
+                  href="https://github.com/cendywang/memory-policy-lab"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'memory_policy_lab_repo', 'projects', this.href)"
+                >View repository <span aria-hidden="true">↗</span></a>
+                <a
+                  class="quiet-link"
+                  href="https://github.com/cendywang/memory-policy-lab#limitations"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'memory_policy_lab_limitations', 'projects', this.href)"
+                >Read limitations</a>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <!-- 开源重器 -->
-        <section id="open-source" class="space-y-6">
-            <h2 class="text-2xl font-bold tracking-tight border-l-4 border-emerald-500 pl-3">Open Source</h2>
-            <div class="p-7 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-emerald-700/70 transition space-y-5">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2 py-1 bg-emerald-950 text-emerald-300 border border-emerald-900 rounded">Kubernetes / AI Agents / Control Plane</span>
-                        <h3 class="text-2xl font-bold">LobsterBay</h3>
-                    </div>
-                    <a href="https://github.com/cendywang/LobsterBay/" onclick="trackClick('outbound_click', 'lobsterbay_repo', 'open_source', this.href)" class="inline-flex items-center justify-center px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold transition">GitHub Repo</a>
-                </div>
-                <p class="text-gray-300 leading-relaxed max-w-2xl">
-                    An open control plane for hosting AI agent runtimes on Kubernetes.
-                </p>
+          <article class="project-card">
+            <div class="project-visual visual-workflow" aria-hidden="true">
+              <div class="workflow-column">
+                <span>Route</span>
+                <i></i>
+                <span>Extract</span>
+                <i></i>
+                <span>Validate</span>
+              </div>
+              <div class="workflow-result">
+                <b>✓</b>
+                <span>Evidence<br>attached</span>
+              </div>
             </div>
-        </section>
-
-        <!-- 企业级服务 -->
-        <section id="enterprise" class="space-y-6">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                <h2 class="text-2xl font-bold tracking-tight border-l-4 border-blue-500 pl-3">Enterprise Solutions</h2>
-                <a href="mailto:cendymails@gmail.com" onclick="trackClick('contact_click', 'consulting_email', 'enterprise', this.href)" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition">Contact for Consulting</a>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-number">02</span>
+                <div class="tag-row">
+                  <span class="tag tag-applied">Applied agent</span>
+                  <span class="tag tag-preview">v0.1.0 Technical Preview</span>
+                </div>
+              </div>
+              <h3>Meeting Minutes Agent</h3>
+              <p class="project-summary">
+                A bounded, evidence-grounded agent proof of concept that turns meeting transcripts into structured minutes with traceable source spans.
+              </p>
+              <div class="project-details">
+                <div>
+                  <span class="detail-label">Demonstrates</span>
+                  <p>Context routing, exact evidence validation, conservative unknown handling, one-pass repair, unresolved isolation, and a local web preview.</p>
+                </div>
+                <div>
+                  <span class="detail-label">Current boundary</span>
+                  <p>Local technical preview. It is not a production meeting platform or a public hosted service.</p>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a
+                  class="text-link"
+                  href="https://github.com/cendywang/meeting-minutes-agent"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'meeting_minutes_agent_repo', 'projects', this.href)"
+                >View repository <span aria-hidden="true">↗</span></a>
+                <a
+                  class="quiet-link"
+                  href="https://github.com/cendywang/meeting-minutes-agent#web-technical-preview"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'meeting_minutes_agent_preview', 'projects', this.href)"
+                >View preview scope</a>
+              </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
-                    <span class="text-xs font-mono px-2 py-1 bg-blue-950 text-blue-300 border border-blue-900 rounded">LobsterBay Enterprise</span>
-                    <h3 class="text-lg font-bold">Agent Runtime Platform</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">Production-ready HA deployments, SSO, and fine-grained RBAC for mission-critical agent orchestration.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual visual-runtime" aria-hidden="true">
+              <div class="runtime-cluster">
+                <span class="cluster-top">Control plane</span>
+                <div class="runtime-nodes">
+                  <i></i><i></i><i></i>
                 </div>
-                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
-                    <span class="text-xs font-mono px-2 py-1 bg-emerald-950 text-emerald-300 border border-emerald-900 rounded">AI Workflow Automation</span>
-                    <h3 class="text-lg font-bold">Multi-Agent Orchestration</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">Custom multi-agent orchestration for complex business scenarios, including cross-border e-commerce workflows.</p>
-                </div>
-                <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-xl hover:border-gray-700 transition space-y-3">
-                    <span class="text-xs font-mono px-2 py-1 bg-sky-950 text-sky-300 border border-sky-900 rounded">Private LLM Gateway</span>
-                    <h3 class="text-lg font-bold">Prism</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">Multi-modal AI API aggregation and cost-optimized routing for enterprise use.</p>
-                </div>
+                <span class="cluster-bottom">Agent runtimes</span>
+              </div>
+              <div class="runtime-pulse pulse-one"></div>
+              <div class="runtime-pulse pulse-two"></div>
             </div>
-        </section>
-
-        <!-- 背景信息 -->
-        <section class="space-y-6">
-            <h2 class="text-2xl font-bold tracking-tight border-l-4 border-gray-600 pl-3">Technical Background</h2>
-            <p class="text-gray-400 max-w-3xl leading-relaxed">
-                Senior AI architect focused on Kubernetes-native infrastructure, high-concurrency AI gateways, multi-agent workflow systems, and private LLM deployments.
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
-                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Background</div>
-                    <div class="text-sm font-semibold">Ex-Alibaba P8</div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-number">03</span>
+                <div class="tag-row">
+                  <span class="tag tag-infra">AI infrastructure</span>
+                  <span class="tag tag-preview">v0.2.0 Preview</span>
                 </div>
-                <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
-                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Education</div>
-                    <div class="text-sm font-semibold">Zhejiang Univ. MS</div>
+              </div>
+              <h3>LobsterBay</h3>
+              <p class="project-summary">
+                An open-source Kubernetes control plane for hosting and operating user-owned AI agent runtimes across isolated environments.
+              </p>
+              <div class="project-details">
+                <div>
+                  <span class="detail-label">Demonstrates</span>
+                  <p>Runtime lifecycle management, tenant isolation, NFS/PVC-backed state, Feishu/Lark channels, Helm packaging, and observability.</p>
                 </div>
-                <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
-                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Core Tech</div>
-                    <div class="text-sm font-semibold">Go / Python / K8s</div>
+                <div>
+                  <span class="detail-label">Current boundary</span>
+                  <p>Suitable for preview and customer-site validation. Enterprise SSO and production HA remain roadmap work.</p>
                 </div>
-                <div class="p-4 bg-gray-900/50 border border-gray-800 rounded-xl">
-                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Focus</div>
-                    <div class="text-sm font-semibold">Agents & LLM Infra</div>
-                </div>
+              </div>
+              <div class="project-actions">
+                <a
+                  class="text-link"
+                  href="https://github.com/cendywang/LobsterBay"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'lobsterbay_repo', 'projects', this.href)"
+                >View repository <span aria-hidden="true">↗</span></a>
+                <a
+                  class="quiet-link"
+                  href="https://github.com/cendywang/LobsterBay#production-readiness"
+                  target="_blank"
+                  rel="noreferrer"
+                  onclick="trackClick('outbound_click', 'lobsterbay_readiness', 'projects', this.href)"
+                >Read readiness notes</a>
+              </div>
             </div>
-        </section>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <section class="section system-section" id="approach">
+      <div class="shell">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="section-label">System view</p>
+            <h2>Remember. Work. Run.</h2>
+          </div>
+          <p>
+            The projects form a continuous exploration of dependable agents—from internal state decisions to auditable work and real-world operation.
+          </p>
+        </div>
 
-    <!-- 页脚 -->
-    <footer class="max-w-4xl mx-auto px-6 py-12 border-t border-gray-800 text-center text-xs text-gray-500">
-        <p>&copy; 2026 Cain Wang. Driven by AI, Engineered for Scale.</p>
-    </footer>
+        <div class="system-map" aria-label="Capability map from memory to workflow to runtime">
+          <article>
+            <span class="map-index">01</span>
+            <div class="map-icon" aria-hidden="true">◎</div>
+            <p class="map-kicker">Remember</p>
+            <h3>Memory policy</h3>
+            <p>What should an agent retain, revise, compress, retrieve, and place into the next bounded request?</p>
+            <a href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noreferrer">Memory Policy Lab</a>
+          </article>
+          <div class="map-connector" aria-hidden="true"><span></span></div>
+          <article>
+            <span class="map-index">02</span>
+            <div class="map-icon" aria-hidden="true">◇</div>
+            <p class="map-kicker">Work</p>
+            <h3>Bounded workflows</h3>
+            <p>How can an agent produce useful results while preserving evidence, explicit uncertainty, and human review paths?</p>
+            <a href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noreferrer">Meeting Minutes Agent</a>
+          </article>
+          <div class="map-connector" aria-hidden="true"><span></span></div>
+          <article>
+            <span class="map-index">03</span>
+            <div class="map-icon" aria-hidden="true">⌬</div>
+            <p class="map-kicker">Run</p>
+            <h3>Runtime infrastructure</h3>
+            <p>How can user-owned agent runtimes be deployed, isolated, observed, and adapted to private environments?</p>
+            <a href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noreferrer">LobsterBay</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section class="section active-system-section" id="active-system">
+      <div class="shell">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="section-label">Private system in active use</p>
+            <h2>Not a product demo.<br>A working personal system.</h2>
+          </div>
+          <p>
+            Hermes is included here as evidence of lived Agent operations—not as an open-source release or enterprise product claim.
+          </p>
+        </div>
+
+        <article class="active-system-card">
+          <div class="active-system-header">
+            <div>
+              <div class="tag-row">
+                <span class="tag tag-private">Private system</span>
+                <span class="tag tag-active">Active since April 2026</span>
+              </div>
+              <h3>Hermes + OpenClaw Content Pipeline</h3>
+              <p class="active-system-summary">
+                A self-hosted, single-user multi-agent workflow for daily news scanning, deep research, article writing, asset production, review, and Feishu cloud-document publishing.
+              </p>
+            </div>
+            <div class="audit-stamp">
+              <span>Audited snapshot</span>
+              <strong>2026-07-21</strong>
+              <small>File, process, configuration, log, and output evidence</small>
+            </div>
+          </div>
+
+          <div class="evidence-metrics" aria-label="Hermes audited evidence">
+            <div><strong>91</strong><span>days in active use</span></div>
+            <div><strong>78</strong><span>daily topic briefs</span></div>
+            <div><strong>13</strong><span>production pipelines dispatched</span></div>
+            <div><strong>11</strong><span>articles approved</span></div>
+            <div><strong>8</strong><span>Feishu documents published</span></div>
+            <div><strong>6</strong><span>MP4 files produced</span></div>
+          </div>
+
+          <div class="active-system-body">
+            <div class="pipeline-view" aria-label="Hermes content workflow">
+              <span>Scan</span><i></i><span>Research</span><i></i><span>Write</span><i></i><span>Assets</span><i></i><span>Review</span><i></i><span>Feishu</span>
+            </div>
+
+            <div class="active-system-details">
+              <div>
+                <span class="detail-label">What is real</span>
+                <p>Seven subagent profiles support a five-stage, filesystem-backed SOP; five have verified dispatched outputs. Ten rejection reports show review and rework in practice. Completion reports are checked against files and metadata rather than trusted at face value.</p>
+              </div>
+              <div>
+                <span class="detail-label">Human boundary</span>
+                <p>Topic approval, public-channel publishing, legal responsibility, and exception recovery remain with the operator. Public platforms are not automatically connected.</p>
+              </div>
+              <div>
+                <span class="detail-label">Current limitation</span>
+                <p>The profiles share one underlying LLM. The system is single-user, has no multi-tenant permissions or SLA, and can stall without operator intervention.</p>
+              </div>
+              <div>
+                <span class="detail-label">Why it matters</span>
+                <p>It demonstrates sustained use of Agent orchestration, review loops, stateful file handoffs, rejection and rework—not merely a one-off multi-agent demo.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="active-system-note">
+            Private implementation · No public repository · Not presented as enterprise-ready or fully autonomous.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section explorations-section">
+      <div class="shell explorations-grid">
+        <div class="explorations-intro">
+          <p class="section-label">Current explorations</p>
+          <h2>Beyond the public repositories.</h2>
+          <p>
+            Early-stage work remains deliberately separated from released projects. These are active directions, not product-readiness claims.
+          </p>
+        </div>
+
+        <div class="exploration-list">
+          <article>
+            <div class="exploration-heading">
+              <span>Hardening &amp; productization</span>
+              <h3>Hermes Digital Worker</h3>
+            </div>
+            <p>Evolving the personal content pipeline toward clearer task state, timeout handling, safer tool boundaries, reusable deployment, and business-specific digital-worker patterns.</p>
+          </article>
+          <article>
+            <div class="exploration-heading">
+              <span>In development</span>
+              <h3>Open Digital Mentor</h3>
+            </div>
+            <p>Expert knowledge distillation and interactive digital-mentor experiences, with clean-room and asset-licensing boundaries treated as first-class design constraints.</p>
+          </article>
+          <article>
+            <div class="exploration-heading">
+              <span>Applied systems</span>
+              <h3>Enterprise Knowledge Agents</h3>
+            </div>
+            <p>Knowledge assistants and bounded business agents for policy search, customer service, expert support, review, and structured operations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles-section">
+      <div class="shell">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="section-label">Working principles</p>
+            <h2>Evidence before adjectives.</h2>
+          </div>
+          <p>
+            The aim is not to make prototypes sound mature. The aim is to make system behavior, evidence, trade-offs, and current boundaries inspectable.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <article>
+            <span>01</span>
+            <h3>Evidence over hype</h3>
+            <p>Connect public claims to code, tests, traces, evaluations, reproducible demos, or clearly documented experiments.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Explicit boundaries</h3>
+            <p>Alpha, preview, and research-stage work should be described as such—without borrowing credibility from future roadmaps.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Systems thinking</h3>
+            <p>Agent behavior, context, evaluation, infrastructure, security, operations, and enterprise constraints belong in one design conversation.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Useful defaults</h3>
+            <p>Where practical, public projects include deterministic, inspectable, low-cost paths that work before a user provides a model key.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="shell about-grid">
+        <div>
+          <p class="section-label">About</p>
+          <h2>Product judgment.<br>Engineering depth.<br>Delivery discipline.</h2>
+        </div>
+        <div class="about-copy">
+          <p class="about-lede">
+            I have spent more than a decade building software products and engineering teams, with recent work focused on LLM applications, agent systems, private model infrastructure, and enterprise AI delivery.
+          </p>
+          <p>
+            My work moves between research questions and delivery constraints: defining a problem, building a testable reference path, making uncertainty visible, and deciding what must be proven before a system is presented as production-ready.
+          </p>
+          <div class="capability-chips" aria-label="Core capabilities">
+            <span>Agent architecture</span>
+            <span>LLM systems</span>
+            <span>Context & memory</span>
+            <span>RAG & knowledge</span>
+            <span>Python / Go</span>
+            <span>Kubernetes</span>
+            <span>Private deployment</span>
+            <span>Product & delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section collaboration-section" id="contact">
+      <div class="shell collaboration-card">
+        <div class="collaboration-copy">
+          <p class="section-label">Enterprise collaboration</p>
+          <h2>From public evidence<br>to accountable delivery.</h2>
+          <p>
+            Commercial consulting, proof-of-concept development, enterprise knowledge agents, workflow integration, and private AI deployment are undertaken through YuyunAI.
+          </p>
+        </div>
+        <div class="collaboration-actions">
+          <a
+            class="button button-light"
+            href="https://yuyunai.cn/"
+            target="_blank"
+            rel="noreferrer"
+            onclick="trackClick('outbound_click', 'yuyunai', 'collaboration', this.href)"
+          >Visit YuyunAI <span aria-hidden="true">↗</span></a>
+          <a
+            class="button button-ghost-light"
+            href="mailto:cain@cainarch.com"
+            onclick="trackClick('contact_click', 'email', 'collaboration', this.href)"
+          >cain@cainarch.com</a>
+          <p>Project scope depends on data, infrastructure, security, and operational requirements.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="Back to top">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span class="brand-text">Cain Wang</span>
+        </a>
+        <p>Building dependable AI agent systems.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/cendywang" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://yuyunai.cn/" target="_blank" rel="noreferrer">YuyunAI <span aria-hidden="true">↗</span></a>
+        <a href="mailto:cain@cainarch.com">Email</a>
+      </div>
+      <p class="copyright">© 2026 Cain Wang. Built as a static site.</p>
+    </div>
+  </footer>
 </body>
 </html>
