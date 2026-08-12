@@ -762,18 +762,18 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#content" data-i18n="skip_to_content">Skip to content</a>
 
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Cain Wang home">
+    <nav class="nav container" aria-label="Primary navigation" data-i18n-aria-label="primary_navigation">
+      <a class="brand" href="#top" aria-label="Cain Wang home" data-i18n-aria-label="home_link">
         <span class="brand-mark" aria-hidden="true">C</span>
         <span>Cain Wang</span>
       </a>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#approach" data-i18n="nav_approach">Approach</a>
+        <a href="#about" data-i18n="nav_about">About</a>
       </div>
     </nav>
   </header>
@@ -781,36 +781,36 @@
   <main id="content">
     <section class="hero container" id="top">
       <div>
-        <p class="eyebrow">Independent AI systems builder</p>
-        <h1>Building dependable <span>AI agent systems.</span></h1>
-        <p class="hero-copy">I research agent memory, build evidence-grounded workflows and Kubernetes-native runtimes, and operate a private multi-agent content system in active use.</p>
+        <p class="eyebrow" data-i18n="hero_eyebrow">Independent AI systems builder</p>
+        <h1 data-i18n-html="hero_title">Building dependable <span>AI agent systems.</span></h1>
+        <p class="hero-copy" data-i18n="hero_copy">I research agent memory, build evidence-grounded workflows and Kubernetes-native runtimes, and operate a private multi-agent content system in active use.</p>
         <div class="actions">
-          <a class="button primary" href="#projects">Explore projects</a>
+          <a class="button primary" href="#projects" data-i18n="explore_projects">Explore projects</a>
           <a class="button external" href="https://github.com/cendywang" target="_blank" rel="noopener" onclick="trackClick('outbound_click','github_profile','hero',this.href)">GitHub</a>
         </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Current systems work">
-        <h2>Current systems work</h2>
+      <aside class="hero-panel" aria-label="Current systems work" data-i18n-aria-label="current_systems_work">
+        <h2 data-i18n="current_systems_work">Current systems work</h2>
         <ol class="systems-list">
           <li>
             <span class="num">01</span>
-            <span><strong>Agent memory policy</strong><span>Retention, revision, retrieval, context budgets</span></span>
+            <span><strong data-i18n="system_memory_policy">Agent memory policy</strong><span data-i18n="system_memory_policy_detail">Retention, revision, retrieval, context budgets</span></span>
           </li>
           <li>
             <span class="num">02</span>
-            <span><strong>Bounded agent workflows</strong><span>Evidence, validation, repair, human review</span></span>
+            <span><strong data-i18n="system_bounded_workflows">Bounded agent workflows</strong><span data-i18n="system_bounded_workflows_detail">Evidence, validation, repair, human review</span></span>
           </li>
           <li>
             <span class="num">03</span>
-            <span><strong>Private runtime infrastructure</strong><span>Kubernetes, lifecycle, state, observability</span></span>
+            <span><strong data-i18n="system_private_runtime">Private runtime infrastructure</strong><span data-i18n="system_private_runtime_detail">Kubernetes, lifecycle, state, observability</span></span>
           </li>
           <li>
             <span class="num">04</span>
-            <span><strong>Multi-agent operations</strong><span>Daily scanning, research, review, publishing handoff</span></span>
+            <span><strong data-i18n="system_multi_agent_operations">Multi-agent operations</strong><span data-i18n="system_multi_agent_operations_detail">Daily scanning, research, review, publishing handoff</span></span>
           </li>
         </ol>
-        <div class="hero-proof">Three public layers · One private operating proof</div>
+        <div class="hero-proof" data-i18n="hero_proof">Three public layers · One private operating proof</div>
       </aside>
     </section>
 
@@ -818,10 +818,10 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Featured projects</p>
-            <h2>One problem space.<br>Three system layers.</h2>
+            <p class="section-kicker" data-i18n="featured_projects">Featured projects</p>
+            <h2 data-i18n-html="featured_projects_title">One problem space.<br>Three system layers.</h2>
           </div>
-          <p class="section-intro">Each project is a public, inspectable artifact. Status labels and limitations are part of the work—not footnotes hidden after the claim.</p>
+          <p class="section-intro" data-i18n="featured_projects_intro">Each project is a public, inspectable artifact. Status labels and limitations are part of the work—not footnotes hidden after the claim.</p>
         </div>
 
         <div class="project-grid">
@@ -831,18 +831,18 @@
               <span class="project-no">01</span>
             </div>
             <div class="status-row">
-              <span class="pill">Research</span>
-              <span class="pill accent">Experimental Alpha</span>
+              <span class="pill" data-i18n="status_research">Research</span>
+              <span class="pill accent" data-i18n="status_experimental_alpha">Experimental Alpha</span>
             </div>
             <h3>Memory Policy Lab</h3>
-            <p class="project-summary">An experimental reference implementation and evaluation harness for how agents retain, compress, retrieve, revise, and assemble memory under context budgets.</p>
+            <p class="project-summary" data-i18n="memory_policy_lab_summary">An experimental reference implementation and evaluation harness for how agents retain, compress, retrieve, revise, and assemble memory under context budgets.</p>
             <div class="project-detail">
-              <p><strong>Demonstrates</strong>Agent memory architecture, explicit context policy, source lineage, deterministic evaluation, and bounded provider experiments.</p>
-              <p><strong>Current boundary</strong>Research software. No production-readiness, unlimited-memory, or better-than-RAG performance claim.</p>
+              <p data-i18n-html="memory_policy_lab_demonstrates"><strong>Demonstrates</strong>Agent memory architecture, explicit context policy, source lineage, deterministic evaluation, and bounded provider experiments.</p>
+              <p data-i18n-html="memory_policy_lab_boundary"><strong>Current boundary</strong>Research software. No production-readiness, unlimited-memory, or better-than-RAG performance claim.</p>
             </div>
             <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_repo','projects',this.href)">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_limitations','projects',this.href)">Read limitations</a>
+              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
+              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_limitations','projects',this.href)" data-i18n="read_limitations">Read limitations</a>
             </div>
           </article>
 
@@ -852,18 +852,18 @@
               <span class="project-no">02</span>
             </div>
             <div class="status-row">
-              <span class="pill">Applied agent</span>
-              <span class="pill accent">v0.1.0 Technical Preview</span>
+              <span class="pill" data-i18n="status_applied_agent">Applied agent</span>
+              <span class="pill accent" data-i18n="status_technical_preview">v0.1.0 Technical Preview</span>
             </div>
             <h3>Meeting Minutes Agent</h3>
-            <p class="project-summary">A bounded, evidence-grounded agent proof of concept that turns meeting transcripts into structured minutes with traceable source spans.</p>
+            <p class="project-summary" data-i18n="meeting_minutes_agent_summary">A bounded, evidence-grounded agent proof of concept that turns meeting transcripts into structured minutes with traceable source spans.</p>
             <div class="project-detail">
-              <p><strong>Demonstrates</strong>Context routing, exact evidence validation, conservative unknown handling, one-pass repair, unresolved isolation, and a local web preview.</p>
-              <p><strong>Current boundary</strong>Local technical preview. It is not a production meeting platform or a public hosted service.</p>
+              <p data-i18n-html="meeting_minutes_agent_demonstrates"><strong>Demonstrates</strong>Context routing, exact evidence validation, conservative unknown handling, one-pass repair, unresolved isolation, and a local web preview.</p>
+              <p data-i18n-html="meeting_minutes_agent_boundary"><strong>Current boundary</strong>Local technical preview. It is not a production meeting platform or a public hosted service.</p>
             </div>
             <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_repo','projects',this.href)">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent#web-preview" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_preview','projects',this.href)">Preview scope</a>
+              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
+              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent#web-preview" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_preview','projects',this.href)" data-i18n="preview_scope">Preview scope</a>
             </div>
           </article>
 
@@ -873,18 +873,18 @@
               <span class="project-no">03</span>
             </div>
             <div class="status-row">
-              <span class="pill">AI infrastructure</span>
-              <span class="pill accent">v0.2.0 Preview</span>
+              <span class="pill" data-i18n="status_ai_infrastructure">AI infrastructure</span>
+              <span class="pill accent" data-i18n="status_preview">v0.2.0 Preview</span>
             </div>
             <h3>LobsterBay</h3>
-            <p class="project-summary">An open-source Kubernetes control plane for hosting and operating user-owned AI agent runtimes across isolated environments.</p>
+            <p class="project-summary" data-i18n="lobsterbay_summary">An open-source Kubernetes control plane for hosting and operating user-owned AI agent runtimes across isolated environments.</p>
             <div class="project-detail">
-              <p><strong>Demonstrates</strong>Runtime lifecycle management, tenant isolation, NFS/PVC-backed state, Feishu/Lark channels, Helm packaging, and observability.</p>
-              <p><strong>Current boundary</strong>Suitable for preview and customer-site validation. Enterprise SSO and production HA remain roadmap work.</p>
+              <p data-i18n-html="lobsterbay_demonstrates"><strong>Demonstrates</strong>Runtime lifecycle management, tenant isolation, NFS/PVC-backed state, Feishu/Lark channels, Helm packaging, and observability.</p>
+              <p data-i18n-html="lobsterbay_boundary"><strong>Current boundary</strong>Suitable for preview and customer-site validation. Enterprise SSO and production HA remain roadmap work.</p>
             </div>
             <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_repo','projects',this.href)">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/LobsterBay#current-status" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_status','projects',this.href)">Readiness notes</a>
+              <a class="text-link external" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
+              <a class="text-link external" href="https://github.com/cendywang/LobsterBay#current-status" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_status','projects',this.href)" data-i18n="readiness_notes">Readiness notes</a>
             </div>
           </article>
         </div>
@@ -895,37 +895,37 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="section-kicker">System view</p>
-            <h2>Remember. Work. Run.</h2>
+            <p class="section-kicker" data-i18n="system_view">System view</p>
+            <h2 data-i18n="system_view_title">Remember. Work. Run.</h2>
           </div>
-          <p class="section-intro">The projects form a continuous exploration of dependable agents—from internal state decisions to auditable work and real-world operation.</p>
+          <p class="section-intro" data-i18n="system_view_intro">The projects form a continuous exploration of dependable agents—from internal state decisions to auditable work and real-world operation.</p>
         </div>
 
         <div class="system-track">
           <article class="track-card">
             <div class="track-no">01</div>
             <div class="track-icon" aria-hidden="true">◎</div>
-            <p class="card-label">Remember</p>
-            <h3>Memory policy</h3>
-            <p>What should an agent retain, revise, compress, retrieve, and place into the next bounded request?</p>
+            <p class="card-label" data-i18n="remember">Remember</p>
+            <h3 data-i18n="memory_policy">Memory policy</h3>
+            <p data-i18n="memory_policy_question">What should an agent retain, revise, compress, retrieve, and place into the next bounded request?</p>
             <a class="external" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener">Memory Policy Lab</a>
           </article>
 
           <article class="track-card">
             <div class="track-no">02</div>
             <div class="track-icon" aria-hidden="true">◇</div>
-            <p class="card-label">Work</p>
-            <h3>Bounded workflows</h3>
-            <p>How can an agent produce useful results while preserving evidence, explicit uncertainty, and human review paths?</p>
+            <p class="card-label" data-i18n="work">Work</p>
+            <h3 data-i18n="bounded_workflows">Bounded workflows</h3>
+            <p data-i18n="bounded_workflows_question">How can an agent produce useful results while preserving evidence, explicit uncertainty, and human review paths?</p>
             <a class="external" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener">Meeting Minutes Agent</a>
           </article>
 
           <article class="track-card">
             <div class="track-no">03</div>
             <div class="track-icon" aria-hidden="true">⌬</div>
-            <p class="card-label">Run</p>
-            <h3>Runtime infrastructure</h3>
-            <p>How can user-owned agent runtimes be deployed, isolated, observed, and adapted to private environments?</p>
+            <p class="card-label" data-i18n="run">Run</p>
+            <h3 data-i18n="runtime_infrastructure">Runtime infrastructure</h3>
+            <p data-i18n="runtime_infrastructure_question">How can user-owned agent runtimes be deployed, isolated, observed, and adapted to private environments?</p>
             <a class="external" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener">LobsterBay</a>
           </article>
         </div>
@@ -937,47 +937,47 @@
         <div class="operating-proof">
           <div class="proof-main">
             <div class="proof-copy">
-              <p class="section-kicker">Operating proof</p>
-              <h2>Not a product demo.<br>A working personal system.</h2>
-              <p>Hermes is included here as evidence of lived agent operations—not as an open-source release or enterprise product claim.</p>
+              <p class="section-kicker" data-i18n="operating_proof">Operating proof</p>
+              <h2 data-i18n-html="operating_proof_title">Not a product demo.<br>A working personal system.</h2>
+              <p data-i18n="operating_proof_intro">Hermes is included here as evidence of lived agent operations—not as an open-source release or enterprise product claim.</p>
               <div class="proof-status">
-                <span class="pill">Private system</span>
-                <span class="pill accent">Active since April 2026</span>
+                <span class="pill" data-i18n="private_system">Private system</span>
+                <span class="pill accent" data-i18n="active_since_april_2026">Active since April 2026</span>
               </div>
               <h3>Hermes + OpenClaw Content Pipeline</h3>
-              <p>A self-hosted, single-user multi-agent workflow for daily news scanning, deep research, article writing, asset production, review, and Feishu cloud-document publishing.</p>
-              <p class="scope-note"><strong>Evidence snapshot · 2026-07-21</strong><br>File, process, configuration, log, and output evidence.</p>
+              <p data-i18n="hermes_pipeline_description">A self-hosted, single-user multi-agent workflow for daily news scanning, deep research, article writing, asset production, review, and Feishu cloud-document publishing.</p>
+              <p class="scope-note" data-i18n-html="evidence_snapshot"><strong>Evidence snapshot · 2026-07-21</strong><br>File, process, configuration, log, and output evidence.</p>
             </div>
 
-            <div class="proof-metrics" aria-label="Hermes evidence snapshot metrics">
-              <div class="metric"><strong>Since Apr 2026</strong><span>Active personal use</span></div>
-              <div class="metric"><strong>78</strong><span>Daily topic briefs</span></div>
-              <div class="metric"><strong>13</strong><span>End-to-end pipeline runs</span></div>
-              <div class="metric"><strong>11</strong><span>Articles approved</span></div>
-              <div class="metric"><strong>8</strong><span>Feishu documents published</span></div>
-              <div class="metric"><strong>6</strong><span>MP4 files produced</span></div>
+            <div class="proof-metrics" aria-label="Hermes evidence snapshot metrics" data-i18n-aria-label="hermes_evidence_metrics">
+              <div class="metric"><strong data-i18n="since_apr_2026">Since Apr 2026</strong><span data-i18n="active_personal_use">Active personal use</span></div>
+              <div class="metric"><strong>78</strong><span data-i18n="daily_topic_briefs">Daily topic briefs</span></div>
+              <div class="metric"><strong>13</strong><span data-i18n="end_to_end_pipeline_runs">End-to-end pipeline runs</span></div>
+              <div class="metric"><strong>11</strong><span data-i18n="articles_approved">Articles approved</span></div>
+              <div class="metric"><strong>8</strong><span data-i18n="feishu_documents_published">Feishu documents published</span></div>
+              <div class="metric"><strong>6</strong><span data-i18n="mp4_files_produced">MP4 files produced</span></div>
             </div>
           </div>
 
           <div class="proof-details">
             <article class="proof-detail">
-              <h3>What is real</h3>
-              <p>Seven subagent profiles support a five-stage, filesystem-backed SOP; five have verified dispatched outputs. Ten rejection reports show review and rework in practice. Completion reports are checked against files and metadata rather than trusted at face value.</p>
+              <h3 data-i18n="what_is_real">What is real</h3>
+              <p data-i18n="what_is_real_description">Seven subagent profiles support a five-stage, filesystem-backed SOP; five have verified dispatched outputs. Ten rejection reports show review and rework in practice. Completion reports are checked against files and metadata rather than trusted at face value.</p>
             </article>
             <article class="proof-detail">
-              <h3>Human boundary</h3>
-              <p>Topic approval, public-channel publishing, legal responsibility, and exception recovery remain with the operator. Public platforms are not automatically connected.</p>
+              <h3 data-i18n="human_boundary">Human boundary</h3>
+              <p data-i18n="human_boundary_description">Topic approval, public-channel publishing, legal responsibility, and exception recovery remain with the operator. Public platforms are not automatically connected.</p>
             </article>
             <article class="proof-detail">
-              <h3>Current limitation</h3>
-              <p>The profiles share one underlying LLM. The system is single-user, has no multi-tenant permissions or SLA, and can stall without operator intervention.</p>
+              <h3 data-i18n="current_limitation">Current limitation</h3>
+              <p data-i18n="current_limitation_description">The profiles share one underlying LLM. The system is single-user, has no multi-tenant permissions or SLA, and can stall without operator intervention.</p>
             </article>
             <article class="proof-detail">
-              <h3>Why it matters</h3>
-              <p>It demonstrates sustained use of agent orchestration, review loops, stateful file handoffs, rejection and rework—not merely a one-off multi-agent demo.</p>
+              <h3 data-i18n="why_it_matters">Why it matters</h3>
+              <p data-i18n="why_it_matters_description">It demonstrates sustained use of agent orchestration, review loops, stateful file handoffs, rejection and rework—not merely a one-off multi-agent demo.</p>
             </article>
           </div>
-          <div class="proof-note">Private implementation · No public repository · Not presented as enterprise-ready or fully autonomous.</div>
+          <div class="proof-note" data-i18n="proof_note">Private implementation · No public repository · Not presented as enterprise-ready or fully autonomous.</div>
         </div>
       </div>
     </section>
@@ -986,27 +986,27 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Current explorations</p>
-            <h2>Beyond the public repositories.</h2>
+            <p class="section-kicker" data-i18n="current_explorations">Current explorations</p>
+            <h2 data-i18n="current_explorations_title">Beyond the public repositories.</h2>
           </div>
-          <p class="section-intro">Early-stage work remains deliberately separated from released projects. These are active directions, not product-readiness claims.</p>
+          <p class="section-intro" data-i18n="current_explorations_intro">Early-stage work remains deliberately separated from released projects. These are active directions, not product-readiness claims.</p>
         </div>
 
         <div class="exploration-grid">
           <article class="exploration-card">
-            <p class="card-label">Hardening & productization</p>
+            <p class="card-label" data-i18n="hardening_productization">Hardening &amp; productization</p>
             <h3>Hermes Digital Worker</h3>
-            <p>Evolving the personal content pipeline toward clearer task state, timeout handling, safer tool boundaries, reusable deployment, and business-specific digital-worker patterns.</p>
+            <p data-i18n="hermes_digital_worker_description">Evolving the personal content pipeline toward clearer task state, timeout handling, safer tool boundaries, reusable deployment, and business-specific digital-worker patterns.</p>
           </article>
           <article class="exploration-card">
-            <p class="card-label">In development</p>
+            <p class="card-label" data-i18n="in_development">In development</p>
             <h3>Open Digital Mentor</h3>
-            <p>Expert knowledge distillation and interactive digital-mentor experiences, with clean-room and asset-licensing boundaries treated as first-class design constraints.</p>
+            <p data-i18n="open_digital_mentor_description">Expert knowledge distillation and interactive digital-mentor experiences, with clean-room and asset-licensing boundaries treated as first-class design constraints.</p>
           </article>
           <article class="exploration-card">
-            <p class="card-label">Applied systems</p>
-            <h3>Enterprise Knowledge Agents</h3>
-            <p>Knowledge assistants and bounded business agents for policy search, customer service, expert support, review, and structured operations.</p>
+            <p class="card-label" data-i18n="applied_systems">Applied systems</p>
+            <h3 data-i18n="enterprise_knowledge_agents">Enterprise Knowledge Agents</h3>
+            <p data-i18n="enterprise_knowledge_agents_description">Knowledge assistants and bounded business agents for policy search, customer service, expert support, review, and structured operations.</p>
           </article>
         </div>
       </div>
@@ -1016,27 +1016,27 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Working principles</p>
-            <h2>Evidence before adjectives.</h2>
+            <p class="section-kicker" data-i18n="working_principles">Working principles</p>
+            <h2 data-i18n="working_principles_title">Evidence before adjectives.</h2>
           </div>
-          <p class="section-intro">The aim is not to make prototypes sound mature. The aim is to make system behavior, evidence, trade-offs, and current boundaries inspectable.</p>
+          <p class="section-intro" data-i18n="working_principles_intro">The aim is not to make prototypes sound mature. The aim is to make system behavior, evidence, trade-offs, and current boundaries inspectable.</p>
         </div>
 
         <div class="principle-grid">
           <article class="principle-card">
             <span class="principle-no">01</span>
-            <h3>Evidence over hype</h3>
-            <p>Connect public claims to code, tests, traces, evaluations, reproducible demos, or clearly documented experiments.</p>
+            <h3 data-i18n="evidence_over_hype">Evidence over hype</h3>
+            <p data-i18n="evidence_over_hype_description">Connect public claims to code, tests, traces, evaluations, reproducible demos, or clearly documented experiments.</p>
           </article>
           <article class="principle-card">
             <span class="principle-no">02</span>
-            <h3>Explicit boundaries</h3>
-            <p>Alpha, preview, and research-stage work should be described as such—without borrowing credibility from future roadmaps.</p>
+            <h3 data-i18n="explicit_boundaries">Explicit boundaries</h3>
+            <p data-i18n="explicit_boundaries_description">Alpha, preview, and research-stage work should be described as such—without borrowing credibility from future roadmaps.</p>
           </article>
           <article class="principle-card">
             <span class="principle-no">03</span>
-            <h3>Systems thinking</h3>
-            <p>Agent behavior, context, evaluation, infrastructure, security, operations, and enterprise constraints belong in one design conversation.</p>
+            <h3 data-i18n="systems_thinking">Systems thinking</h3>
+            <p data-i18n="systems_thinking_description">Agent behavior, context, evaluation, infrastructure, security, operations, and enterprise constraints belong in one design conversation.</p>
           </article>
         </div>
       </div>
@@ -1045,19 +1045,19 @@
     <section class="section" id="about">
       <div class="container">
         <article class="about-panel">
-          <p class="section-kicker">About</p>
-          <h2>Product judgment.<br>Engineering depth.<br>Delivery discipline.</h2>
-          <p>I have spent more than a decade building software products and engineering teams, with recent work focused on LLM applications, agent systems, private model infrastructure, and applied AI delivery.</p>
-          <p>My work moves between research questions and delivery constraints: defining a problem, building a testable reference path, making uncertainty visible, and deciding what must be proven before a system is presented as production-ready.</p>
-          <div class="skills" aria-label="Areas of expertise">
-            <span class="skill">Agent architecture</span>
-            <span class="skill">LLM systems</span>
-            <span class="skill">Context & memory</span>
-            <span class="skill">RAG & knowledge</span>
+          <p class="section-kicker" data-i18n="about">About</p>
+          <h2 data-i18n-html="about_title">Product judgment.<br>Engineering depth.<br>Delivery discipline.</h2>
+          <p data-i18n="about_description">I have spent more than a decade building software products and engineering teams, with recent work focused on LLM applications, agent systems, private model infrastructure, and applied AI delivery.</p>
+          <p data-i18n="about_description_2">My work moves between research questions and delivery constraints: defining a problem, building a testable reference path, making uncertainty visible, and deciding what must be proven before a system is presented as production-ready.</p>
+          <div class="skills" aria-label="Areas of expertise" data-i18n-aria-label="areas_of_expertise">
+            <span class="skill" data-i18n="agent_architecture">Agent architecture</span>
+            <span class="skill" data-i18n="llm_systems">LLM systems</span>
+            <span class="skill" data-i18n="context_memory">Context &amp; memory</span>
+            <span class="skill" data-i18n="rag_knowledge">RAG &amp; knowledge</span>
             <span class="skill">Python / Go</span>
             <span class="skill">Kubernetes</span>
-            <span class="skill">Private deployment</span>
-            <span class="skill">Product & delivery</span>
+            <span class="skill" data-i18n="private_deployment">Private deployment</span>
+            <span class="skill" data-i18n="product_delivery">Product &amp; delivery</span>
           </div>
         </article>
       </div>
@@ -1068,14 +1068,174 @@
     <div class="container footer-grid">
       <div class="footer-copy">
         <strong>Cain Wang</strong>
-        <span>Building dependable AI agent systems.</span>
+        <span data-i18n="footer_tagline">Building dependable AI agent systems.</span>
       </div>
       <div class="footer-links">
         <a class="external" href="https://github.com/cendywang" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:cain@cainarch.com">Email</a>
+        <a href="mailto:cain@cainarch.com" data-i18n="email">Email</a>
         <span>© 2026 Cain Wang</span>
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const preferredLanguage = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+      const isChinese = /^zh(?:[-_]|$)/i.test(preferredLanguage);
+
+      if (!isChinese) return;
+
+      const zh = {
+        document_title: "Cain Wang — 智能体系统、记忆与 AI 基础设施",
+        meta_description: "Cain Wang 构建可靠的 AI 智能体系统，涵盖记忆策略、以证据为依据的工作流、Kubernetes 原生运行时和私有多智能体运营。",
+        og_description: "涵盖智能体记忆、有边界的工作流、私有运行时和真实多智能体运营的开源系统与研究原型。",
+        twitter_description: "构建可靠的 AI 智能体系统：从记忆策略与有边界的工作流，到私有运行时基础设施。",
+
+        skip_to_content: "跳至正文",
+        primary_navigation: "主导航",
+        home_link: "Cain Wang 首页",
+        nav_projects: "项目",
+        nav_approach: "方法",
+        nav_about: "关于",
+
+        hero_eyebrow: "独立 AI 系统构建者",
+        hero_title: "构建可靠的 <span>AI 智能体系统。</span>",
+        hero_copy: "我研究智能体记忆，构建以证据为依据的工作流与 Kubernetes 原生运行时，并持续运行一套私有多智能体内容系统。",
+        explore_projects: "浏览项目",
+        current_systems_work: "当前系统工作",
+        system_memory_policy: "智能体记忆策略",
+        system_memory_policy_detail: "保留、修订、检索、上下文预算",
+        system_bounded_workflows: "有边界的智能体工作流",
+        system_bounded_workflows_detail: "证据、验证、修复、人工审查",
+        system_private_runtime: "私有运行时基础设施",
+        system_private_runtime_detail: "Kubernetes、生命周期、状态、可观测性",
+        system_multi_agent_operations: "多智能体运营",
+        system_multi_agent_operations_detail: "日常扫描、研究、审校、发布交接",
+        hero_proof: "三个公开层级 · 一个私有运行实证",
+
+        featured_projects: "精选项目",
+        featured_projects_title: "一个问题空间。<br>三个系统层。",
+        featured_projects_intro: "每个项目都是可公开查验的成果。状态标签和局限性属于工作本身，而不是在声明之后隐藏的脚注。",
+        status_research: "研究",
+        status_experimental_alpha: "实验性 Alpha",
+        memory_policy_lab_summary: "一个实验性的参考实现与评估工具，用于探索智能体如何在上下文预算下保留、压缩、检索、修订和组装记忆。",
+        memory_policy_lab_demonstrates: "<strong>验证内容</strong>智能体记忆架构、显式上下文策略、来源谱系、确定性评估及受限供应商实验。",
+        memory_policy_lab_boundary: "<strong>当前边界</strong>研究软件；不宣称具备生产就绪、无限记忆或优于 RAG 的性能。",
+        view_repository: "查看仓库",
+        read_limitations: "阅读局限性",
+        status_applied_agent: "应用型智能体",
+        status_technical_preview: "v0.1.0 技术预览",
+        meeting_minutes_agent_summary: "一个有边界、以证据为依据的概念验证智能体，可将会议转录转化为带可追溯源文本片段的结构化纪要。",
+        meeting_minutes_agent_demonstrates: "<strong>验证内容</strong>上下文路由、精确证据验证、保守的未知项处理、一次修复、未解决事项隔离以及本地网页预览。",
+        meeting_minutes_agent_boundary: "<strong>当前边界</strong>本地技术预览；不是生产级会议平台或公开托管服务。",
+        preview_scope: "预览范围",
+        status_ai_infrastructure: "AI 基础设施",
+        status_preview: "v0.2.0 预览版",
+        lobsterbay_summary: "用于在隔离环境中托管和运行用户自有 AI 智能体运行时的开源 Kubernetes 控制平面。",
+        lobsterbay_demonstrates: "<strong>验证内容</strong>运行时生命周期管理、租户隔离、基于 NFS/PVC 的状态、飞书/Lark 通道、Helm 打包和可观测性。",
+        lobsterbay_boundary: "<strong>当前边界</strong>适用于预览和客户现场验证；企业 SSO 与生产级高可用仍在路线图中。",
+        readiness_notes: "就绪说明",
+
+        system_view: "系统视角",
+        system_view_title: "记忆。工作。运行。",
+        system_view_intro: "这些项目构成对可靠智能体的一次连续探索：从内部状态决策，到可审计的工作，再到真实世界的运行。",
+        remember: "记忆",
+        memory_policy: "记忆策略",
+        memory_policy_question: "智能体应保留、修订、压缩、检索什么，并将哪些信息放入下一次有边界的请求？",
+        work: "工作",
+        bounded_workflows: "有边界的工作流",
+        bounded_workflows_question: "智能体如何在保留证据、明确不确定性和人工审查路径的同时，产出有用结果？",
+        run: "运行",
+        runtime_infrastructure: "运行时基础设施",
+        runtime_infrastructure_question: "如何将用户自有的智能体运行时部署、隔离、观测并适配到私有环境？",
+
+        operating_proof: "运行实证",
+        operating_proof_title: "不是产品演示。<br>而是正在运行的个人系统。",
+        operating_proof_intro: "Hermes 在此作为真实智能体运营的证据呈现，并非开源发布或商业产品声明。",
+        private_system: "私人系统",
+        active_since_april_2026: "自 2026 年 4 月起活跃使用",
+        hermes_pipeline_description: "一个自托管、单用户的多智能体工作流，用于每日新闻扫描、深度研究、文章撰写、素材生产、审校及飞书云文档发布。",
+        evidence_snapshot: "<strong>证据快照 · 2026-07-21</strong><br>文件、进程、配置、日志与输出证据。",
+        hermes_evidence_metrics: "Hermes 证据快照指标",
+        since_apr_2026: "自 2026 年 4 月",
+        active_personal_use: "个人持续使用",
+        daily_topic_briefs: "每日选题简报",
+        end_to_end_pipeline_runs: "端到端流水线运行",
+        articles_approved: "已审核通过的文章",
+        feishu_documents_published: "已发布的飞书文档",
+        mp4_files_produced: "已产出的 MP4 文件",
+        what_is_real: "真实情况",
+        what_is_real_description: "七个子智能体配置支持一套由文件系统驱动、分五阶段执行的 SOP；其中五个已有已验证的派发输出。十份驳回报告证明审核和返工在实际发生。完成报告会依据文件和元数据核验，而非照单全收。",
+        human_boundary: "人工边界",
+        human_boundary_description: "选题批准、公开渠道发布、法律责任和异常恢复仍由操作者负责。系统不会自动连接公开平台。",
+        current_limitation: "当前局限",
+        current_limitation_description: "这些配置共用一个底层 LLM。系统为单用户设计，没有多租户权限或 SLA，并且可能在缺少操作者干预时停滞。",
+        why_it_matters: "意义所在",
+        why_it_matters_description: "它证明了智能体编排、审查循环、有状态文件交接、驳回与返工的持续使用，而不仅是一次性的多智能体演示。",
+        proof_note: "私有实现 · 无公开仓库 · 不作为企业就绪或完全自主的系统呈现。",
+
+        current_explorations: "当前探索",
+        current_explorations_title: "超越公开仓库。",
+        current_explorations_intro: "早期工作被刻意与已发布项目分开；这些是正在推进的方向，而非产品就绪声明。",
+        hardening_productization: "强化与产品化",
+        hermes_digital_worker_description: "持续演进个人内容流水线，使任务状态更清晰、超时处理更可靠、工具边界更安全、部署可复用，并探索业务专用的数字员工模式。",
+        in_development: "开发中",
+        open_digital_mentor_description: "专家知识蒸馏与交互式数字导师体验，将洁净室和资产授权边界作为首要设计约束。",
+        applied_systems: "应用系统",
+        enterprise_knowledge_agents: "组织知识智能体",
+        enterprise_knowledge_agents_description: "面向政策检索、客户服务、专家支持、审核及结构化运营的知识助手和有边界的业务智能体。",
+
+        working_principles: "工作原则",
+        working_principles_title: "证据先于修饰。",
+        working_principles_intro: "目标不是把原型说得成熟，而是让系统行为、证据、权衡和当前边界都可被检视。",
+        evidence_over_hype: "证据优先于炒作",
+        evidence_over_hype_description: "将公开声明与代码、测试、追踪记录、评估、可复现实验或清晰记录的实验关联起来。",
+        explicit_boundaries: "明确边界",
+        explicit_boundaries_description: "Alpha、预览和研究阶段的工作应如实描述，不应借用未来路线图的可信度。",
+        systems_thinking: "系统思维",
+        systems_thinking_description: "智能体行为、上下文、评估、基础设施、安全、运营和组织约束，应在同一个设计讨论中统筹考虑。",
+
+        about: "关于",
+        about_title: "产品判断。<br>工程深度。<br>交付纪律。",
+        about_description: "我拥有十余年软件产品和工程团队建设经验，近年专注于 LLM 应用、智能体系统、私有模型基础设施与 AI 应用交付。",
+        about_description_2: "我的工作在研究问题与交付约束之间穿行：定义问题、构建可测试的参考路径、让不确定性可见，并判断一个系统在被呈现为生产就绪之前必须证明什么。",
+        areas_of_expertise: "专长领域",
+        agent_architecture: "智能体架构",
+        llm_systems: "LLM 系统",
+        context_memory: "上下文与记忆",
+        rag_knowledge: "RAG 与知识系统",
+        private_deployment: "私有部署",
+        product_delivery: "产品与交付",
+        footer_tagline: "构建可靠的 AI 智能体系统。",
+        email: "电子邮件"
+      };
+
+      const translate = (selector, dataAttribute, setter) => {
+        document.querySelectorAll(selector).forEach((element) => {
+          const value = zh[element.dataset[dataAttribute]];
+          if (typeof value === "string") setter(element, value);
+        });
+      };
+
+      document.documentElement.lang = "zh-Hans";
+      document.documentElement.dataset.locale = "zh";
+      document.title = zh.document_title;
+
+      translate("[data-i18n]", "i18n", (element, value) => { element.textContent = value; });
+      translate("[data-i18n-html]", "i18nHtml", (element, value) => { element.innerHTML = value; });
+      translate("[data-i18n-aria-label]", "i18nAriaLabel", (element, value) => { element.setAttribute("aria-label", value); });
+
+      const setMetaContent = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.setAttribute("content", value);
+      };
+
+      setMetaContent('meta[name="description"]', zh.meta_description);
+      setMetaContent('meta[property="og:title"]', zh.document_title);
+      setMetaContent('meta[property="og:description"]', zh.og_description);
+      setMetaContent('meta[name="twitter:title"]', zh.document_title);
+      setMetaContent('meta[name="twitter:description"]', zh.twitter_description);
+    })();
+  </script>
 </body>
 </html>
