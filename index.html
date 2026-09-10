@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -14,1065 +14,458 @@
       gtag('event', eventName, {
         link_name: linkName,
         link_location: linkLocation,
-        link_url: linkUrl
+        link_url: linkUrl,
+        transport_type: 'beacon'
       });
     }
+
+    document.addEventListener('click', function(event) {
+      const target = event.target;
+      const link = target && target.closest ? target.closest('a[data-track-name]') : null;
+      if (!link) return;
+      trackClick(
+        link.dataset.trackEvent || 'outbound_click',
+        link.dataset.trackName,
+        link.dataset.trackLocation || 'unknown',
+        link.href
+      );
+    });
   </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#09110f">
+  <meta name="theme-color" content="#07111f">
   <meta name="color-scheme" content="dark">
 
-  <title>Cain Wang — Agent Systems, Memory & AI Infrastructure</title>
-  <meta name="description" content="Cain Wang builds dependable AI agent systems across memory policy, evidence-grounded workflows, Kubernetes-native runtimes, and private multi-agent operations.">
+  <title>Cain Wang — Production Systems Architect for AI &amp; SaaS</title>
+  <meta name="description" content="Production Systems Architect Cain Wang provides AI production readiness, software architecture consulting and reliability audits for AI and SaaS teams.">
   <link rel="canonical" href="https://cainarch.com/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cain Wang">
-  <meta property="og:title" content="Cain Wang — Agent Systems, Memory & AI Infrastructure">
-  <meta property="og:description" content="Open-source systems and research prototypes across agent memory, bounded workflows, private runtimes, and lived multi-agent operations.">
+  <meta property="og:title" content="Cain Wang — Production Systems Architect for AI &amp; SaaS">
+  <meta property="og:description" content="Architecture, reliability, security, scalability, and cost judgment for AI and SaaS systems before expensive technical risks become outages or rewrites.">
   <meta property="og:url" content="https://cainarch.com/">
+  <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cain Wang — Agent Systems, Memory & AI Infrastructure">
-  <meta name="twitter:description" content="Building dependable AI agent systems—from memory policy and bounded workflows to private runtime infrastructure.">
+  <meta name="twitter:title" content="Cain Wang — Production Systems Architect for AI &amp; SaaS">
+  <meta name="twitter:description" content="AI production readiness, software architecture consulting, and reliability judgment for systems approaching real customers and real scale.">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2309110f'/%3E%3Cpath d='M43 19c-3-3-7-5-12-5-10 0-18 8-18 18s8 18 18 18c5 0 10-2 13-6l-7-6c-2 2-4 3-6 3-5 0-9-4-9-9s4-9 9-9c2 0 5 1 6 3l6-7z' fill='%236ee7b7'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2307111f'/%3E%3Cpath d='M43 19c-3-3-7-5-12-5-10 0-18 8-18 18s8 18 18 18c5 0 10-2 13-6l-7-6c-2 2-4 3-6 3-5 0-9-4-9-9s4-9 9-9c2 0 5 1 6 3l6-7z' fill='%2357e6b1'/%3E%3C/svg%3E">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Cain Wang",
+    "alternateName": "CainArch",
     "url": "https://cainarch.com/",
     "email": "mailto:cain@cainarch.com",
+    "jobTitle": "Production Systems Architect for AI & SaaS",
+    "description": "Production systems architecture consulting for AI and SaaS teams, including AI production readiness, architecture risk, reliability, and technical readiness for global expansion.",
     "sameAs": [
+      "https://www.linkedin.com/in/cendywang/",
       "https://github.com/cendywang"
     ],
-    "jobTitle": "AI Systems Builder",
     "knowsAbout": [
-      "AI agents",
-      "LLM systems",
-      "Agent memory",
-      "RAG",
-      "Kubernetes",
-      "Private AI deployment"
+      "AI production readiness",
+      "Software architecture consulting",
+      "Architecture risk and reliability audits",
+      "AI systems architecture",
+      "SaaS architecture",
+      "Distributed systems",
+      "Reliability engineering",
+      "Technical advisor",
+      "Principal Architect"
     ]
   }
   </script>
-
-  <style>
-    :root {
-      --bg: #07100d;
-      --bg-elevated: #0b1713;
-      --panel: rgba(14, 29, 24, 0.72);
-      --panel-strong: #10211b;
-      --panel-soft: rgba(255, 255, 255, 0.025);
-      --text: #f2f7f4;
-      --muted: #9aa9a2;
-      --muted-2: #728079;
-      --line: rgba(197, 225, 211, 0.13);
-      --line-strong: rgba(110, 231, 183, 0.28);
-      --accent: #6ee7b7;
-      --accent-strong: #34d399;
-      --accent-soft: rgba(110, 231, 183, 0.09);
-      --blue: #93c5fd;
-      --amber: #fbbf24;
-      --radius-lg: 26px;
-      --radius-md: 18px;
-      --radius-sm: 12px;
-      --max: 1180px;
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 5%, rgba(52, 211, 153, 0.09), transparent 31rem),
-        radial-gradient(circle at 88% 18%, rgba(147, 197, 253, 0.06), transparent 28rem),
-        linear-gradient(180deg, #07100d 0%, #08120f 45%, #07100d 100%);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.28;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, black, transparent 75%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid rgba(110, 231, 183, 0.55);
-      outline-offset: 4px;
-      border-radius: 8px;
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { letter-spacing: -0.035em; }
-
-    .skip-link {
-      position: fixed;
-      left: 16px;
-      top: 12px;
-      z-index: 100;
-      transform: translateY(-150%);
-      padding: 10px 14px;
-      color: #06100c;
-      background: var(--accent);
-      border-radius: 10px;
-      font-weight: 800;
-      transition: transform 160ms ease;
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin-inline: auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      border-bottom: 1px solid transparent;
-      background: rgba(7, 16, 13, 0.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 850;
-      letter-spacing: -0.025em;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line-strong);
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 11px;
-      font-size: 14px;
-      font-weight: 900;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .nav-links a { transition: color 150ms ease; }
-    .nav-links a:hover { color: var(--text); }
-
-    .external::after { content: " ↗"; color: var(--accent); }
-
-    .hero {
-      min-height: 720px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-      gap: clamp(40px, 8vw, 110px);
-      align-items: center;
-      padding: 104px 0 98px;
-    }
-
-    .eyebrow,
-    .section-kicker,
-    .card-label,
-    .meta-label {
-      margin-bottom: 15px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 850;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      max-width: 820px;
-      margin-bottom: 28px;
-      font-size: clamp(56px, 8vw, 102px);
-      line-height: 0.96;
-      font-weight: 880;
-    }
-
-    .hero h1 span {
-      display: block;
-      color: transparent;
-      background: linear-gradient(110deg, #f4fbf7 10%, #9de9cb 64%, #7dd3fc 110%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    .hero-copy {
-      max-width: 720px;
-      margin-bottom: 36px;
-      color: #b6c4bd;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      background: rgba(255,255,255,0.025);
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 820;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .button.primary {
-      color: #06100c;
-      border-color: var(--accent);
-      background: var(--accent);
-    }
-    .button.primary:hover { background: #8af0c8; }
-
-    .hero-panel {
-      position: relative;
-      overflow: hidden;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(160deg, rgba(19, 40, 33, 0.9), rgba(9, 20, 16, 0.76));
-      box-shadow: var(--shadow);
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      width: 210px;
-      height: 210px;
-      right: -90px;
-      bottom: -100px;
-      border-radius: 50%;
-      background: rgba(110, 231, 183, 0.08);
-      filter: blur(2px);
-    }
-
-    .hero-panel h2 {
-      margin-bottom: 24px;
-      font-size: 17px;
-      letter-spacing: -0.015em;
-    }
-
-    .systems-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .systems-list li {
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 14px;
-      padding: 17px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .systems-list li:first-child { border-top: 0; padding-top: 0; }
-    .systems-list .num { color: var(--accent); font: 750 12px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; }
-    .systems-list strong { display: block; margin-bottom: 2px; font-size: 14px; }
-    .systems-list span:last-child { color: var(--muted); font-size: 13px; }
-
-    .hero-proof {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted-2);
-      font-size: 12px;
-      font-weight: 750;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section {
-      padding: 104px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(280px, 0.55fr);
-      gap: 44px;
-      align-items: end;
-      margin-bottom: 48px;
-    }
-
-    .section h2 {
-      margin-bottom: 0;
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.05;
-    }
-
-    .section-intro {
-      margin-bottom: 2px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .project-card,
-    .principle-card,
-    .exploration-card,
-    .about-panel {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
-    }
-
-    .project-card {
-      min-height: 610px;
-      display: flex;
-      flex-direction: column;
-      padding: 28px;
-      border-radius: var(--radius-lg);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--line-strong);
-      background: rgba(16, 35, 28, 0.9);
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 34px;
-    }
-
-    .monogram {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line-strong);
-      border-radius: 15px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .project-no {
-      color: var(--muted-2);
-      font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-
-    .status-row {
-      min-height: 44px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      align-content: flex-start;
-      margin-bottom: 14px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 26px;
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.025);
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .pill.accent {
-      color: var(--accent);
-      border-color: rgba(110, 231, 183, 0.22);
-      background: var(--accent-soft);
-    }
-
-    .project-card h3 {
-      margin-bottom: 16px;
-      font-size: 29px;
-      line-height: 1.12;
-    }
-
-    .project-summary {
-      min-height: 126px;
-      color: #b9c6c0;
-      font-size: 15px;
-    }
-
-    .project-detail {
-      margin-top: 6px;
-      padding-top: 19px;
-      border-top: 1px solid var(--line);
-    }
-
-    .project-detail p {
-      margin-bottom: 19px;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
-
-    .project-detail p:last-child { margin-bottom: 0; }
-    .project-detail strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--text);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-      padding-top: 28px;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      color: #d8e4de;
-      font-size: 12px;
-      font-weight: 800;
-      transition: border-color 160ms ease, color 160ms ease;
-    }
-    .text-link:hover { color: var(--accent); border-color: var(--line-strong); }
-
-    .system-track {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,0.018);
-    }
-
-    .track-card {
-      position: relative;
-      min-height: 335px;
-      padding: 34px;
-      border-left: 1px solid var(--line);
-    }
-    .track-card:first-child { border-left: 0; }
-
-    .track-no {
-      margin-bottom: 72px;
-      color: var(--muted-2);
-      font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-
-    .track-icon {
-      margin-bottom: 24px;
-      color: var(--accent);
-      font-size: 30px;
-      line-height: 1;
-    }
-
-    .track-card h3 { margin-bottom: 12px; font-size: 25px; }
-    .track-card p { color: var(--muted); font-size: 14px; }
-    .track-card a { color: var(--accent); font-size: 13px; font-weight: 820; }
-
-    .operating-proof {
-      overflow: hidden;
-      border: 1px solid var(--line-strong);
-      border-radius: 30px;
-      background:
-        linear-gradient(135deg, rgba(110, 231, 183, 0.08), transparent 34%),
-        var(--panel-strong);
-      box-shadow: var(--shadow);
-    }
-
-    .proof-main {
-      display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
-    }
-
-    .proof-copy {
-      padding: 46px;
-      border-right: 1px solid var(--line);
-    }
-
-    .proof-copy h2 {
-      margin-bottom: 22px;
-      font-size: clamp(38px, 5vw, 58px);
-    }
-
-    .proof-copy > p {
-      color: #b9c6c0;
-      font-size: 16px;
-    }
-
-    .proof-status {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 30px 0 20px;
-    }
-
-    .proof-copy h3 { margin-bottom: 12px; font-size: 27px; }
-
-    .proof-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-    }
-
-    .metric {
-      min-height: 128px;
-      padding: 24px;
-      background: #0c1915;
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--text);
-      font-size: 24px;
-      letter-spacing: -0.035em;
-    }
-
-    .metric span {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .proof-details {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      border-top: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .proof-detail {
-      padding: 28px;
-      background: #0a1612;
-    }
-
-    .proof-detail h3 { margin-bottom: 10px; font-size: 17px; }
-    .proof-detail p { margin-bottom: 0; color: var(--muted); font-size: 13.5px; }
-
-    .proof-note {
-      padding: 16px 28px;
-      border-top: 1px solid var(--line);
-      color: var(--muted-2);
-      background: rgba(0,0,0,0.12);
-      font-size: 12px;
-      font-weight: 720;
-      text-align: center;
-    }
-
-    .exploration-grid,
-    .principle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .exploration-card,
-    .principle-card {
-      padding: 28px;
-      border-radius: var(--radius-md);
-    }
-
-    .exploration-card h3,
-    .principle-card h3 { margin-bottom: 12px; font-size: 21px; }
-    .exploration-card p,
-    .principle-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
-
-    .principle-no {
-      display: block;
-      margin-bottom: 40px;
-      color: var(--accent);
-      font: 750 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-
-    .about-panel {
-      padding: 38px;
-      border-radius: var(--radius-lg);
-    }
-
-    .about-panel h2 {
-      margin-bottom: 25px;
-      font-size: clamp(35px, 4.3vw, 56px);
-      line-height: 1.06;
-    }
-
-    .about-panel p { color: var(--muted); }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 30px;
-    }
-
-    .skill {
-      padding: 7px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #b8c6bf;
-      background: rgba(255,255,255,0.02);
-      font-size: 11px;
-      font-weight: 740;
-    }
-
-    .scope-note {
-      margin-top: 24px;
-      color: var(--muted-2) !important;
-      font-size: 12px;
-    }
-
-    .site-footer {
-      padding: 42px 0 48px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      align-items: flex-end;
-    }
-
-    .footer-copy strong { display: block; margin-bottom: 5px; }
-    .footer-copy span { color: var(--muted); font-size: 13px; }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      justify-content: flex-end;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: 88px 0; }
-      .hero-panel { max-width: 700px; }
-      .section-head { grid-template-columns: 1fr; gap: 22px; }
-      .project-grid { grid-template-columns: 1fr; }
-      .project-card { min-height: 0; }
-      .project-summary { min-height: 0; }
-      .system-track { grid-template-columns: 1fr; }
-      .track-card { min-height: 0; border-left: 0; border-top: 1px solid var(--line); }
-      .track-card:first-child { border-top: 0; }
-      .track-no { margin-bottom: 40px; }
-      .proof-main { grid-template-columns: 1fr; }
-      .proof-copy { border-right: 0; border-bottom: 1px solid var(--line); }
-    }
-
-    @media (max-width: 760px) {
-      .container { width: min(calc(100% - 28px), var(--max)); }
-      .nav { min-height: 68px; gap: 12px; }
-      .nav-links { gap: 10px; font-size: 12px; }
-      .hero { padding: 70px 0 76px; }
-      .hero h1 { font-size: clamp(48px, 15vw, 72px); }
-      .section { padding: 76px 0; }
-      .project-card, .about-panel { padding: 24px; }
-      .proof-copy { padding: 28px; }
-      .proof-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .metric:last-child { grid-column: 1 / -1; }
-      .proof-details { grid-template-columns: 1fr; }
-      .exploration-grid, .principle-grid { grid-template-columns: 1fr; }
-      .footer-grid { align-items: flex-start; flex-direction: column; }
-      .footer-links { justify-content: flex-start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="skip_to_content">Skip to content</a>
 
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation" data-i18n-aria-label="primary_navigation">
+    <nav class="nav shell" aria-label="Primary navigation" data-i18n-aria-label="primary_navigation">
       <a class="brand" href="#top" aria-label="Cain Wang home" data-i18n-aria-label="home_link">
         <span class="brand-mark" aria-hidden="true">C</span>
-        <span>Cain Wang</span>
+        <span class="brand-name">Cain Wang</span>
       </a>
-      <div class="nav-links">
-        <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#approach" data-i18n="nav_approach">Approach</a>
+      <div class="site-nav">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#proof" data-i18n="nav_proof">Proof</a>
         <a href="#about" data-i18n="nav_about">About</a>
+        <a class="nav-cta" href="mailto:cain@cainarch.com?subject=Architecture%20%2F%20Production%20Systems%20Discussion" data-i18n="nav_cta" data-track-event="cta_click" data-track-name="header_discuss_system" data-track-location="header">Discuss Your System <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
   </header>
 
   <main id="content">
-    <section class="hero container" id="top">
-      <div>
-        <p class="eyebrow" data-i18n="hero_eyebrow">Independent AI systems builder</p>
-        <h1 data-i18n-html="hero_title">Building dependable <span>AI agent systems.</span></h1>
-        <p class="hero-copy" data-i18n="hero_copy">I research agent memory, build evidence-grounded workflows and Kubernetes-native runtimes, and operate a private multi-agent content system in active use.</p>
-        <div class="actions">
-          <a class="button primary" href="#projects" data-i18n="explore_projects">Explore projects</a>
-          <a class="button external" href="https://github.com/cendywang" target="_blank" rel="noopener" onclick="trackClick('outbound_click','github_profile','hero',this.href)">GitHub</a>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow" data-i18n="hero_eyebrow">Production Systems Architect · AI &amp; SaaS</p>
+          <h1 id="hero-title" data-i18n-html="hero_title">Turn fast-built software into <span>production systems.</span></h1>
+          <div class="hero-lede">
+            <p data-i18n="hero_intro">AI and SaaS teams can build faster than ever. The hard part is knowing whether the system is actually ready for real customers, real traffic, real data and real failures.</p>
+            <p data-i18n="hero_body">I help founders, CTOs and engineering teams find architecture, reliability, scalability, security and cost risks before they become outages, rewrites or lost customers.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:cain@cainarch.com?subject=Architecture%20%2F%20Production%20Systems%20Discussion" data-i18n="cta_discuss_system" data-track-event="cta_click" data-track-name="hero_discuss_system" data-track-location="hero">Discuss Your System <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#proof" data-i18n="cta_see_proof" data-track-event="navigation_click" data-track-name="hero_see_proof" data-track-location="hero">See Proof <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="hero-footnote"><span data-i18n="hero_footnote">For teams facing an expensive technical uncertainty.</span></p>
         </div>
-      </div>
 
-      <aside class="hero-panel" aria-label="Current systems work" data-i18n-aria-label="current_systems_work">
-        <h2 data-i18n="current_systems_work">Current systems work</h2>
-        <ol class="systems-list">
-          <li>
-            <span class="num">01</span>
-            <span><strong data-i18n="system_memory_policy">Agent memory policy</strong><span data-i18n="system_memory_policy_detail">Retention, revision, retrieval, context budgets</span></span>
-          </li>
-          <li>
-            <span class="num">02</span>
-            <span><strong data-i18n="system_bounded_workflows">Bounded agent workflows</strong><span data-i18n="system_bounded_workflows_detail">Evidence, validation, repair, human review</span></span>
-          </li>
-          <li>
-            <span class="num">03</span>
-            <span><strong data-i18n="system_private_runtime">Private runtime infrastructure</strong><span data-i18n="system_private_runtime_detail">Kubernetes, lifecycle, state, observability</span></span>
-          </li>
-          <li>
-            <span class="num">04</span>
-            <span><strong data-i18n="system_multi_agent_operations">Multi-agent operations</strong><span data-i18n="system_multi_agent_operations_detail">Daily scanning, research, review, publishing handoff</span></span>
-          </li>
-        </ol>
-        <div class="hero-proof" data-i18n="hero_proof">Three public layers · One private operating proof</div>
-      </aside>
+        <aside class="hero-panel" aria-labelledby="hero-panel-title">
+          <p class="panel-kicker" data-i18n="hero_panel_kicker">A senior second opinion for systems under pressure</p>
+          <h2 id="hero-panel-title" data-i18n="hero_panel_title">Find the expensive uncertainty.</h2>
+          <ul class="focus-list">
+            <li>
+              <span class="focus-index">01</span>
+              <div><strong data-i18n="hero_focus_architecture">Architecture</strong><span data-i18n="hero_focus_architecture_detail">Which decision is creating risk now?</span></div>
+            </li>
+            <li>
+              <span class="focus-index">02</span>
+              <div><strong data-i18n="hero_focus_reliability">Reliability</strong><span data-i18n="hero_focus_reliability_detail">What happens when the system and team are under stress?</span></div>
+            </li>
+            <li>
+              <span class="focus-index">03</span>
+              <div><strong data-i18n="hero_focus_ai">AI systems</strong><span data-i18n="hero_focus_ai_detail">Can the output be inspected, bounded and recovered?</span></div>
+            </li>
+            <li>
+              <span class="focus-index">04</span>
+              <div><strong data-i18n="hero_focus_scale">Scale &amp; cost</strong><span data-i18n="hero_focus_scale_detail">What will growth make expensive or fragile?</span></div>
+            </li>
+          </ul>
+          <p class="panel-footer"><span data-i18n="hero_panel_footer">Architecture · Reliability · AI systems · Cost</span></p>
+        </aside>
+      </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head">
+    <section class="section problems-section" id="when" aria-labelledby="when-title">
+      <div class="shell">
+        <div class="section-heading">
           <div>
-            <p class="section-kicker" data-i18n="featured_projects">Featured projects</p>
-            <h2 data-i18n-html="featured_projects_title">One problem space.<br>Three system layers.</h2>
+            <p class="section-label" data-i18n="when_kicker">When to bring me in</p>
+            <h2 id="when-title" data-i18n="when_title">When teams bring me in.</h2>
           </div>
-          <p class="section-intro" data-i18n="featured_projects_intro">Each project is a public, inspectable artifact. Status labels and limitations are part of the work—not footnotes hidden after the claim.</p>
+          <p data-i18n="when_intro">The right question is often not “Should we rewrite?” It is “What is actually risky, and what is expensive to leave unresolved?”</p>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-top">
-              <span class="monogram" aria-hidden="true">M</span>
-              <span class="project-no">01</span>
-            </div>
-            <div class="status-row">
-              <span class="pill" data-i18n="status_research">Research</span>
-              <span class="pill accent" data-i18n="status_experimental_alpha">Experimental Alpha</span>
-            </div>
-            <h3>Memory Policy Lab</h3>
-            <p class="project-summary" data-i18n="memory_policy_lab_summary">An experimental reference implementation and evaluation harness for how agents retain, compress, retrieve, revise, and assemble memory under context budgets.</p>
-            <div class="project-detail">
-              <p data-i18n-html="memory_policy_lab_demonstrates"><strong>Demonstrates</strong>Agent memory architecture, explicit context policy, source lineage, deterministic evaluation, and bounded provider experiments.</p>
-              <p data-i18n-html="memory_policy_lab_boundary"><strong>Current boundary</strong>Research software. No production-readiness, unlimited-memory, or better-than-RAG performance claim.</p>
-            </div>
-            <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/memory-policy-lab/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener" onclick="trackClick('outbound_click','memory_policy_lab_limitations','projects',this.href)" data-i18n="read_limitations">Read limitations</a>
-            </div>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <span class="card-number">01</span>
+            <h3 data-i18n="problem_prototype_title">The AI prototype works, but nobody fully trusts it in production.</h3>
+            <p data-i18n="problem_prototype_detail">You need a clear view of failure modes, evidence, permissions, fallback behavior and operational gaps before usage expands.</p>
           </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <span class="monogram" aria-hidden="true">✓</span>
-              <span class="project-no">02</span>
-            </div>
-            <div class="status-row">
-              <span class="pill" data-i18n="status_applied_agent">Applied agent</span>
-              <span class="pill accent" data-i18n="status_technical_preview">v0.1.0 Technical Preview</span>
-            </div>
-            <h3>Meeting Minutes Agent</h3>
-            <p class="project-summary" data-i18n="meeting_minutes_agent_summary">A bounded, evidence-grounded agent proof of concept that turns meeting transcripts into structured minutes with traceable source spans.</p>
-            <div class="project-detail">
-              <p data-i18n-html="meeting_minutes_agent_demonstrates"><strong>Demonstrates</strong>Context routing, exact evidence validation, conservative unknown handling, one-pass repair, unresolved isolation, and a local web preview.</p>
-              <p data-i18n-html="meeting_minutes_agent_boundary"><strong>Current boundary</strong>Local technical preview. It is not a production meeting platform or a public hosted service.</p>
-            </div>
-            <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/meeting-minutes-agent#web-preview" target="_blank" rel="noopener" onclick="trackClick('outbound_click','meeting_minutes_preview','projects',this.href)" data-i18n="preview_scope">Preview scope</a>
-            </div>
+          <article class="problem-card">
+            <span class="card-number">02</span>
+            <h3 data-i18n="problem_growth_title">Growth is exposing architectural decisions that used to be harmless.</h3>
+            <p data-i18n="problem_growth_detail">Latency, reliability, data boundaries or cloud cost are changing faster than the team can explain them.</p>
           </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <span class="monogram" aria-hidden="true">⌬</span>
-              <span class="project-no">03</span>
-            </div>
-            <div class="status-row">
-              <span class="pill" data-i18n="status_ai_infrastructure">AI infrastructure</span>
-              <span class="pill accent" data-i18n="status_preview">v0.2.0 Preview</span>
-            </div>
-            <h3>LobsterBay</h3>
-            <p class="project-summary" data-i18n="lobsterbay_summary">An open-source Kubernetes control plane for hosting and operating user-owned AI agent runtimes across isolated environments.</p>
-            <div class="project-detail">
-              <p data-i18n-html="lobsterbay_demonstrates"><strong>Demonstrates</strong>Runtime lifecycle management, tenant isolation, NFS/PVC-backed state, Feishu/Lark channels, Helm packaging, and observability.</p>
-              <p data-i18n-html="lobsterbay_boundary"><strong>Current boundary</strong>Suitable for preview and customer-site validation. Enterprise SSO and production HA remain roadmap work.</p>
-            </div>
-            <div class="project-actions">
-              <a class="text-link external" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_repo','projects',this.href)" data-i18n="view_repository">View repository</a>
-              <a class="text-link external" href="https://github.com/cendywang/LobsterBay#current-status" target="_blank" rel="noopener" onclick="trackClick('outbound_click','lobsterbay_status','projects',this.href)" data-i18n="readiness_notes">Readiness notes</a>
-            </div>
+          <article class="problem-card">
+            <span class="card-number">03</span>
+            <h3 data-i18n="problem_incidents_title">Incidents, cloud cost or technical debt are increasing faster than the team can explain.</h3>
+            <p data-i18n="problem_incidents_detail">You need an outside diagnosis that connects system behavior to business impact and a sequence of practical fixes.</p>
+          </article>
+          <article class="problem-card">
+            <span class="card-number">04</span>
+            <h3 data-i18n="problem_rewrite_title">The team is about to rewrite or modernize without enough evidence about what is actually wrong.</h3>
+            <p data-i18n="problem_rewrite_detail">A risk map can separate necessary change from expensive motion and make the next decision defensible.</p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="approach">
-      <div class="container">
-        <div class="section-head">
+        <article class="problem-global">
+          <span class="card-number">05</span>
           <div>
-            <p class="section-kicker" data-i18n="system_view">System view</p>
-            <h2 data-i18n="system_view_title">Remember. Work. Run.</h2>
-          </div>
-          <p class="section-intro" data-i18n="system_view_intro">The projects form a continuous exploration of dependable agents—from internal state decisions to auditable work and real-world operation.</p>
-        </div>
-
-        <div class="system-track">
-          <article class="track-card">
-            <div class="track-no">01</div>
-            <div class="track-icon" aria-hidden="true">◎</div>
-            <p class="card-label" data-i18n="remember">Remember</p>
-            <h3 data-i18n="memory_policy">Memory policy</h3>
-            <p data-i18n="memory_policy_question">What should an agent retain, revise, compress, retrieve, and place into the next bounded request?</p>
-            <a class="external" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener">Memory Policy Lab</a>
-          </article>
-
-          <article class="track-card">
-            <div class="track-no">02</div>
-            <div class="track-icon" aria-hidden="true">◇</div>
-            <p class="card-label" data-i18n="work">Work</p>
-            <h3 data-i18n="bounded_workflows">Bounded workflows</h3>
-            <p data-i18n="bounded_workflows_question">How can an agent produce useful results while preserving evidence, explicit uncertainty, and human review paths?</p>
-            <a class="external" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener">Meeting Minutes Agent</a>
-          </article>
-
-          <article class="track-card">
-            <div class="track-no">03</div>
-            <div class="track-icon" aria-hidden="true">⌬</div>
-            <p class="card-label" data-i18n="run">Run</p>
-            <h3 data-i18n="runtime_infrastructure">Runtime infrastructure</h3>
-            <p data-i18n="runtime_infrastructure_question">How can user-owned agent runtimes be deployed, isolated, observed, and adapted to private environments?</p>
-            <a class="external" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener">LobsterBay</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="operating-proof">
-          <div class="proof-main">
-            <div class="proof-copy">
-              <p class="section-kicker" data-i18n="operating_proof">Operating proof</p>
-              <h2 data-i18n-html="operating_proof_title">Not a product demo.<br>A working personal system.</h2>
-              <p data-i18n="operating_proof_intro">Hermes is included here as evidence of lived agent operations—not as an open-source release or enterprise product claim.</p>
-              <div class="proof-status">
-                <span class="pill" data-i18n="private_system">Private system</span>
-                <span class="pill accent" data-i18n="active_since_april_2026">Active since April 2026</span>
-              </div>
-              <h3>Hermes + OpenClaw Content Pipeline</h3>
-              <p data-i18n="hermes_pipeline_description">A self-hosted, single-user multi-agent workflow for daily news scanning, deep research, article writing, asset production, review, and Feishu cloud-document publishing.</p>
-              <p class="scope-note" data-i18n-html="evidence_snapshot"><strong>Evidence snapshot · 2026-07-21</strong><br>File, process, configuration, log, and output evidence.</p>
-            </div>
-
-            <div class="proof-metrics" aria-label="Hermes evidence snapshot metrics" data-i18n-aria-label="hermes_evidence_metrics">
-              <div class="metric"><strong data-i18n="since_apr_2026">Since Apr 2026</strong><span data-i18n="active_personal_use">Active personal use</span></div>
-              <div class="metric"><strong>78</strong><span data-i18n="daily_topic_briefs">Daily topic briefs</span></div>
-              <div class="metric"><strong>13</strong><span data-i18n="end_to_end_pipeline_runs">End-to-end pipeline runs</span></div>
-              <div class="metric"><strong>11</strong><span data-i18n="articles_approved">Articles approved</span></div>
-              <div class="metric"><strong>8</strong><span data-i18n="feishu_documents_published">Feishu documents published</span></div>
-              <div class="metric"><strong>6</strong><span data-i18n="mp4_files_produced">MP4 files produced</span></div>
-            </div>
-          </div>
-
-          <div class="proof-details">
-            <article class="proof-detail">
-              <h3 data-i18n="what_is_real">What is real</h3>
-              <p data-i18n="what_is_real_description">Seven subagent profiles support a five-stage, filesystem-backed SOP; five have verified dispatched outputs. Ten rejection reports show review and rework in practice. Completion reports are checked against files and metadata rather than trusted at face value.</p>
-            </article>
-            <article class="proof-detail">
-              <h3 data-i18n="human_boundary">Human boundary</h3>
-              <p data-i18n="human_boundary_description">Topic approval, public-channel publishing, legal responsibility, and exception recovery remain with the operator. Public platforms are not automatically connected.</p>
-            </article>
-            <article class="proof-detail">
-              <h3 data-i18n="current_limitation">Current limitation</h3>
-              <p data-i18n="current_limitation_description">The profiles share one underlying LLM. The system is single-user, has no multi-tenant permissions or SLA, and can stall without operator intervention.</p>
-            </article>
-            <article class="proof-detail">
-              <h3 data-i18n="why_it_matters">Why it matters</h3>
-              <p data-i18n="why_it_matters_description">It demonstrates sustained use of agent orchestration, review loops, stateful file handoffs, rejection and rework—not merely a one-off multi-agent demo.</p>
-            </article>
-          </div>
-          <div class="proof-note" data-i18n="proof_note">Private implementation · No public repository · Not presented as enterprise-ready or fully autonomous.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker" data-i18n="current_explorations">Current explorations</p>
-            <h2 data-i18n="current_explorations_title">Beyond the public repositories.</h2>
-          </div>
-          <p class="section-intro" data-i18n="current_explorations_intro">Early-stage work remains deliberately separated from released projects. These are active directions, not product-readiness claims.</p>
-        </div>
-
-        <div class="exploration-grid">
-          <article class="exploration-card">
-            <p class="card-label" data-i18n="hardening_productization">Hardening &amp; productization</p>
-            <h3>Hermes Digital Worker</h3>
-            <p data-i18n="hermes_digital_worker_description">Evolving the personal content pipeline toward clearer task state, timeout handling, safer tool boundaries, reusable deployment, and business-specific digital-worker patterns.</p>
-          </article>
-          <article class="exploration-card">
-            <p class="card-label" data-i18n="in_development">In development</p>
-            <h3>Open Digital Mentor</h3>
-            <p data-i18n="open_digital_mentor_description">Expert knowledge distillation and interactive digital-mentor experiences, with clean-room and asset-licensing boundaries treated as first-class design constraints.</p>
-          </article>
-          <article class="exploration-card">
-            <p class="card-label" data-i18n="applied_systems">Applied systems</p>
-            <h3 data-i18n="enterprise_knowledge_agents">Enterprise Knowledge Agents</h3>
-            <p data-i18n="enterprise_knowledge_agents_description">Knowledge assistants and bounded business agents for policy search, customer service, expert support, review, and structured operations.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker" data-i18n="working_principles">Working principles</p>
-            <h2 data-i18n="working_principles_title">Evidence before adjectives.</h2>
-          </div>
-          <p class="section-intro" data-i18n="working_principles_intro">The aim is not to make prototypes sound mature. The aim is to make system behavior, evidence, trade-offs, and current boundaries inspectable.</p>
-        </div>
-
-        <div class="principle-grid">
-          <article class="principle-card">
-            <span class="principle-no">01</span>
-            <h3 data-i18n="evidence_over_hype">Evidence over hype</h3>
-            <p data-i18n="evidence_over_hype_description">Connect public claims to code, tests, traces, evaluations, reproducible demos, or clearly documented experiments.</p>
-          </article>
-          <article class="principle-card">
-            <span class="principle-no">02</span>
-            <h3 data-i18n="explicit_boundaries">Explicit boundaries</h3>
-            <p data-i18n="explicit_boundaries_description">Alpha, preview, and research-stage work should be described as such—without borrowing credibility from future roadmaps.</p>
-          </article>
-          <article class="principle-card">
-            <span class="principle-no">03</span>
-            <h3 data-i18n="systems_thinking">Systems thinking</h3>
-            <p data-i18n="systems_thinking_description">Agent behavior, context, evaluation, infrastructure, security, operations, and enterprise constraints belong in one design conversation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <article class="about-panel">
-          <p class="section-kicker" data-i18n="about">About</p>
-          <h2 data-i18n-html="about_title">Product judgment.<br>Engineering depth.<br>Delivery discipline.</h2>
-          <p data-i18n="about_description">I have spent more than a decade building software products and engineering teams, with recent work focused on LLM applications, agent systems, private model infrastructure, and applied AI delivery.</p>
-          <p data-i18n="about_description_2">My work moves between research questions and delivery constraints: defining a problem, building a testable reference path, making uncertainty visible, and deciding what must be proven before a system is presented as production-ready.</p>
-          <div class="skills" aria-label="Areas of expertise" data-i18n-aria-label="areas_of_expertise">
-            <span class="skill" data-i18n="agent_architecture">Agent architecture</span>
-            <span class="skill" data-i18n="llm_systems">LLM systems</span>
-            <span class="skill" data-i18n="context_memory">Context &amp; memory</span>
-            <span class="skill" data-i18n="rag_knowledge">RAG &amp; knowledge</span>
-            <span class="skill">Python / Go</span>
-            <span class="skill">Kubernetes</span>
-            <span class="skill" data-i18n="private_deployment">Private deployment</span>
-            <span class="skill" data-i18n="product_delivery">Product &amp; delivery</span>
+            <p class="small-label" data-i18n="problem_global_label">Global expansion</p>
+            <p data-i18n="problem_global_detail">A product built for one operating environment now needs to work across international infrastructure and customers.</p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="services_kicker">Services</p>
+            <h2 id="services-title" data-i18n="services_title">Three ways to reduce technical risk.</h2>
+          </div>
+          <p data-i18n="services_intro">Focused software architecture consulting for a specific decision, system risk or production threshold. No open-ended staff augmentation.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top"><span class="card-number">01</span><span class="duration" data-i18n="service_ai_duration">5–7 business days</span></div>
+            <h3 data-i18n="service_ai_title">AI Production Readiness Review</h3>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_for">For</span>
+              <p data-i18n="service_ai_audience">AI applications or agent systems moving from prototype or early customer usage toward production.</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_question">Core question</span>
+              <p data-i18n="service_ai_promise">What can break when real users, real data and real failure conditions arrive?</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_focus">Review focus</span>
+              <p data-i18n="service_ai_focus">Failure modes, data handling and fallback paths; model and tool boundaries; permissions, evaluation, observability, deployment, scaling and cost.</p>
+            </div>
+            <div class="service-deliverable">
+              <span class="small-label" data-i18n="service_deliverables">You leave with</span>
+              <p data-i18n="service_ai_deliverables">Prioritized production blockers, a risk map, architecture findings and a remediation plan.</p>
+            </div>
+            <a class="text-cta" href="mailto:cain@cainarch.com?subject=AI%20Production%20Readiness%20Review" data-i18n="service_ai_cta" data-track-event="cta_click" data-track-name="ai_production_readiness_review" data-track-location="services">Discuss an AI Review <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card service-card-featured">
+            <div class="service-top"><span class="card-number">02</span><span class="duration" data-i18n="service_architecture_duration">1–2 weeks</span></div>
+            <h3 data-i18n="service_architecture_title">Architecture Risk &amp; Reliability Audit</h3>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_for">For</span>
+              <p data-i18n="service_architecture_audience">Systems becoming fragile, expensive, slow to change, unreliable or difficult to scale.</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_question">Core question</span>
+              <p data-i18n="service_architecture_promise">What is actually causing risk, and what is expensive to leave unfixed?</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_focus">Review focus</span>
+              <p data-i18n="service_architecture_focus">Failure domains and scalability; service and data boundaries; technical debt, deployment risk, observability, cloud cost and modernization priorities.</p>
+            </div>
+            <div class="service-deliverable">
+              <span class="small-label" data-i18n="service_deliverables">You leave with</span>
+              <p data-i18n="service_architecture_deliverables">An architecture risk map, prioritized findings, justified target-state recommendations and a remediation sequence.</p>
+            </div>
+            <a class="text-cta" href="mailto:cain@cainarch.com?subject=Architecture%20Risk%20%26%20Reliability%20Audit" data-i18n="service_architecture_cta" data-track-event="cta_click" data-track-name="architecture_risk_reliability_audit" data-track-location="services">Request an Architecture Audit <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top"><span class="card-number">03</span><span class="duration" data-i18n="service_global_duration">1–2 weeks</span></div>
+            <h3 data-i18n="service_global_title">Technical Readiness for Global Expansion</h3>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_for">For</span>
+              <p data-i18n="service_global_audience">Technology companies taking an existing product into new international environments.</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_question">Core question</span>
+              <p data-i18n="service_global_promise">What must change in the architecture and operating model before the product can expand responsibly?</p>
+            </div>
+            <div class="service-block">
+              <span class="small-label" data-i18n="service_focus">Review focus</span>
+              <p data-i18n="service_global_focus">Deployment topology and regions; latency, identity and data flows; operations, third-party dependencies and AI/model infrastructure.</p>
+            </div>
+            <div class="service-deliverable">
+              <span class="small-label" data-i18n="service_deliverables">You leave with</span>
+              <p data-i18n="service_global_deliverables">A technical readiness view, key architecture gaps and a sequence for expansion work. This is architecture advice, not legal or regulatory counsel.</p>
+            </div>
+            <a class="text-cta" href="mailto:cain@cainarch.com?subject=Technical%20Readiness%20for%20Global%20Expansion" data-i18n="service_global_cta" data-track-event="cta_click" data-track-name="global_expansion_readiness" data-track-location="services">Discuss Global Expansion <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proof-section" id="proof" aria-labelledby="proof-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="proof_kicker">Production-scale proof</p>
+            <h2 id="proof-title" data-i18n="proof_title">Built where failure had consequences.</h2>
+          </div>
+          <p data-i18n="proof_intro">The judgment behind an audit comes from systems where stability, recovery and customer impact were not theoretical.</p>
+        </div>
+
+        <article class="case-study">
+          <div class="case-heading">
+            <div>
+              <p class="small-label" data-i18n="case_label">Featured production case</p>
+              <h3 data-i18n="case_title">Ele.me long-connection platform</h3>
+            </div>
+            <p class="case-context" data-i18n="case_context">Former senior architect · Business-critical real-time order delivery</p>
+          </div>
+          <div class="case-grid">
+            <div class="case-part">
+              <span class="case-step" data-i18n="case_situation">Situation</span>
+              <p data-i18n="case_situation_text">I was responsible for the stability of a business-critical long-connection platform supporting approximately 10 million concurrent client connections. Couriers depended on it for real-time order delivery.</p>
+            </div>
+            <div class="case-part">
+              <span class="case-step" data-i18n="case_response">Response</span>
+              <p data-i18n="case_response_text">During a peak-traffic incident, an abnormal disconnect path caused incomplete TCP cleanup and progressive memory growth. We contained it first with controlled rolling restarts so connections could migrate across nodes instead of allowing the cluster to fail together. I then coordinated backend, Android, iOS, DevOps, architecture and data teams to trace client keepalive behavior, TCP/network behavior and server implementation.</p>
+            </div>
+            <div class="case-part">
+              <span class="case-step" data-i18n="case_outcome">Outcome</span>
+              <p data-i18n="case_outcome_text">The connection-lifecycle defect was fixed, monitoring and stability controls improved, and the platform continued supporting approximately 10 million concurrent long-lived connections with push delivery around 98%. It remained in use after Ele.me was acquired by Alibaba.</p>
+            </div>
+          </div>
+          <p class="case-lesson" data-i18n="case_lesson">Stabilize first. Diagnose across boundaries. Improve the system so the same class of failure becomes observable.</p>
+        </article>
+
+        <div class="metric-grid">
+          <div class="metric"><strong>15</strong><span data-i18n="metric_years">years across software engineering and architecture</span></div>
+          <div class="metric"><strong>50+</strong><span data-i18n="metric_people">people in an engineering organization led at Ping An</span></div>
+          <div class="metric"><strong>~10M</strong><span data-i18n="metric_connections">concurrent long-lived connections supported</span></div>
+          <div class="metric"><strong>~98%</strong><span data-i18n="metric_delivery">push delivery rate</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-proof" aria-labelledby="ai-proof-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="ai_proof_kicker">Engineering proof</p>
+            <h2 id="ai-proof-title" data-i18n="ai_proof_title">Evidence before adjectives.</h2>
+          </div>
+          <p data-i18n="ai_proof_intro">Current AI work is useful here because it is inspectable: the repositories show how boundaries, evidence, runtime behavior and limitations are handled.</p>
+        </div>
+
+        <div class="proof-project-grid">
+          <article class="proof-project proof-project-featured">
+            <div class="project-topline"><span class="project-mark" aria-hidden="true">✓</span><span class="project-type" data-i18n="public_repository">Public repository</span></div>
+            <h3>Meeting Minutes Agent</h3>
+            <p class="project-summary" data-i18n="meeting_summary">An evidence-grounded AI workflow that turns meeting transcripts into structured minutes with traceable source spans.</p>
+            <div class="project-proof">
+              <span class="small-label" data-i18n="proof_relevance">Why it matters</span>
+              <p data-i18n="meeting_relevance">Exact evidence validation, conservative unknown handling, bounded repair and unresolved isolation show how AI output can be inspected rather than blindly trusted.</p>
+            </div>
+            <p class="project-boundary"><span data-i18n="current_boundary">Current boundary</span><span data-i18n="meeting_boundary">Local technical preview; not a production meeting platform or hosted service.</span></p>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/cendywang/meeting-minutes-agent" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="meeting_minutes_agent_repository" data-track-location="ai_proof" data-i18n="view_repository">View repository <span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="https://github.com/cendywang/meeting-minutes-agent#web-preview" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="meeting_minutes_agent_web_preview" data-track-location="ai_proof" data-i18n="preview_scope">Preview scope <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="proof-project proof-project-featured">
+            <div class="project-topline"><span class="project-mark" aria-hidden="true">⌬</span><span class="project-type" data-i18n="public_repository">Public repository</span></div>
+            <h3>LobsterBay</h3>
+            <p class="project-summary" data-i18n="lobsterbay_summary">An open-source Kubernetes control plane for hosting and operating user-owned AI agent runtimes across isolated environments.</p>
+            <div class="project-proof">
+              <span class="small-label" data-i18n="proof_relevance">Why it matters</span>
+              <p data-i18n="lobsterbay_relevance">Runtime lifecycle, persistent state, tenant and environment isolation, Helm/customer-site packaging and observability address the gap between a laptop demo and an operating system.</p>
+            </div>
+            <p class="project-boundary"><span data-i18n="current_boundary">Current boundary</span><span data-i18n="lobsterbay_boundary">Preview and customer-site validation; enterprise SSO and production HA remain roadmap work.</span></p>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/cendywang/LobsterBay" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="lobsterbay_repository" data-track-location="ai_proof" data-i18n="view_repository">View repository <span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="https://github.com/cendywang/LobsterBay#current-status" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="lobsterbay_current_status" data-track-location="ai_proof" data-i18n="readiness_notes">Readiness notes <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="proof-project proof-project-secondary">
+            <div class="project-topline"><span class="project-mark" aria-hidden="true">M</span><span class="project-type" data-i18n="secondary_proof">Secondary depth proof</span></div>
+            <h3>Memory Policy Lab</h3>
+            <p class="project-summary" data-i18n="memory_summary">An experimental reference implementation and evaluation harness for how agents retain, compress, retrieve and revise memory under context budgets.</p>
+            <div class="project-proof">
+              <span class="small-label" data-i18n="proof_relevance">Why it matters</span>
+              <p data-i18n="memory_relevance">It makes context policy, source lineage and deterministic evaluation explicit design concerns.</p>
+            </div>
+            <p class="project-boundary"><span data-i18n="current_boundary">Current boundary</span><span data-i18n="memory_boundary">Research software; no production-readiness or better-than-RAG performance claim.</span></p>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/cendywang/memory-policy-lab" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="memory_policy_lab_repository" data-track-location="ai_proof" data-i18n="view_repository">View repository <span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="https://github.com/cendywang/memory-policy-lab/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener noreferrer" data-track-event="proof_project_click" data-track-name="memory_policy_lab_limitations" data-track-location="ai_proof" data-i18n="read_limitations">Read limitations <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <article class="private-proof">
+          <div>
+            <p class="small-label" data-i18n="private_workflow_label">Private operating workflow</p>
+            <h3 data-i18n="private_workflow_title">Hermes + OpenClaw in repeated real use.</h3>
+          </div>
+          <p data-i18n="private_workflow_description">I use a self-hosted multi-agent workflow for research, review and publishing handoffs. It is evidence that I operate these systems in practice, not a claim that private workflow software is enterprise-ready.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="who" aria-labelledby="who-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="who_kicker">Who I work with</p>
+            <h2 id="who-title" data-i18n="who_title">The conversation starts with a consequential decision.</h2>
+          </div>
+          <p data-i18n="who_intro">You do not need another list of technologies. You need a senior view of what to protect, what to change and what can wait.</p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card"><span class="card-number">01</span><h3 data-i18n="audience_founders_title">AI &amp; SaaS founders / CTOs</h3><p data-i18n="audience_founders_body">When customer usage is growing and the system needs a production decision that the founding team can stand behind.</p></article>
+          <article class="audience-card"><span class="card-number">02</span><h3 data-i18n="audience_leaders_title">Engineering leaders</h3><p data-i18n="audience_leaders_body">When reliability, architecture or modernization work needs an independent diagnosis and a prioritized path.</p></article>
+          <article class="audience-card"><span class="card-number">03</span><h3 data-i18n="audience_agencies_title">Software &amp; AI agencies</h3><p data-i18n="audience_agencies_body">When a project needs an external Principal Architect or senior technical rescue capability for a high-stakes moment.</p></article>
+          <article class="audience-card"><span class="card-number">04</span><h3 data-i18n="audience_chinese_title">Chinese technology companies expanding internationally</h3><p data-i18n="audience_chinese_body">When an existing product needs a clear technical operating plan for new infrastructure, customers and regions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engagement" aria-labelledby="engagement-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="engagement_kicker">How an engagement works</p>
+            <h2 id="engagement-title" data-i18n="engagement_title">A short path from uncertainty to a decision.</h2>
+          </div>
+          <p data-i18n="engagement_intro">The work is shaped around the question you need answered, the evidence available and the next decision it should support.</p>
+        </div>
+
+        <ol class="engagement-steps">
+          <li><span class="step-number">01</span><h3 data-i18n="step_scope_title">Scope</h3><p data-i18n="step_scope_body">Identify the decision or expensive technical uncertainty.</p></li>
+          <li><span class="step-number">02</span><h3 data-i18n="step_inspect_title">Inspect</h3><p data-i18n="step_inspect_body">Review the relevant architecture, code, infrastructure, operating evidence and team context.</p></li>
+          <li><span class="step-number">03</span><h3 data-i18n="step_decide_title">Decide</h3><p data-i18n="step_decide_body">Rank findings by business and engineering impact, with clear evidence for the trade-offs.</p></li>
+          <li><span class="step-number">04</span><h3 data-i18n="step_fix_title">Fix if needed</h3><p data-i18n="step_fix_body">Take the report internally, or keep me involved in critical remediation as a Fractional Principal Architect.</p></li>
+        </ol>
+        <p class="engagement-note" data-i18n="engagement_note">Hands-on when necessary. Focused technical ownership, not generic staff augmentation.</p>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div class="about-copy">
+          <p class="section-label" data-i18n="about_kicker">Why bring me in</p>
+          <h2 id="about-title" data-i18n-html="about_title">Traditional production engineering <span>×</span> modern AI systems.</h2>
+          <p class="about-lede" data-i18n="about_lede">About 15 years across large-scale production systems and current AI systems, with architecture decisions that had real operational consequences.</p>
+          <p data-i18n="about_body">As a technical advisor, I work between founders and engineering teams: translating business pressure into a system-level diagnosis, then going deep enough into implementation details to make the recommendation useful.</p>
+          <p data-i18n="about_body_2">My background includes former Alibaba P8 and senior architecture work at Ele.me, leading a 50+ person engineering organization in a Ping An business, and current work on AI systems whose evidence and limits can be inspected.</p>
+        </div>
+        <aside class="credibility-panel" aria-label="Selected background" data-i18n-aria-label="selected_background">
+          <p class="small-label" data-i18n="credibility_label">Selected background</p>
+          <div class="credibility-list">
+            <div><strong>15</strong><span data-i18n="credibility_years">years in software engineering and architecture</span></div>
+            <div><strong>Alibaba P8</strong><span data-i18n="credibility_alibaba">former role in a large-scale technology organization</span></div>
+            <div><strong>50+</strong><span data-i18n="credibility_team">engineering organization members led at Ping An</span></div>
+            <div><strong data-i18n="credibility_current_value">Current</strong><span data-i18n="credibility_current">AI systems, evidence-grounded workflows and private runtimes</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section final-section" id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <div class="final-card">
+          <p class="section-label" data-i18n="final_kicker">Start with the uncertainty</p>
+          <h2 id="contact-title" data-i18n="final_title">Not sure whether you need a rewrite, a fix, or just a second opinion?</h2>
+          <p data-i18n="final_body">Tell me what you built, what is changing, and what you are worried about. I will tell you whether this is a problem I can help with.</p>
+          <div class="final-actions">
+            <a class="button button-primary" href="mailto:cain@cainarch.com?subject=Architecture%20%2F%20Production%20Systems%20Discussion" data-i18n="cta_discuss_system" data-track-event="cta_click" data-track-name="final_discuss_system" data-track-location="final_cta">Discuss Your System <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/cendywang/" target="_blank" rel="noopener noreferrer" data-track-event="outbound_click" data-track-name="linkedin_profile" data-track-location="final_cta">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://github.com/cendywang" target="_blank" rel="noopener noreferrer" data-track-event="outbound_click" data-track-name="github_profile" data-track-location="final_cta">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="shell footer-grid">
       <div class="footer-copy">
         <strong>Cain Wang</strong>
-        <span data-i18n="footer_tagline">Building dependable AI agent systems.</span>
+        <span data-i18n="footer_tagline">Production Systems Architect for AI &amp; SaaS.</span>
       </div>
       <div class="footer-links">
-        <a class="external" href="https://github.com/cendywang" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:cain@cainarch.com" data-i18n="email">Email</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#proof" data-i18n="nav_proof">Proof</a>
+        <a href="mailto:cain@cainarch.com" data-i18n="email" data-track-event="cta_click" data-track-name="footer_email" data-track-location="footer">Email</a>
+        <a href="https://www.linkedin.com/in/cendywang/" target="_blank" rel="noopener noreferrer" data-track-event="outbound_click" data-track-name="linkedin_profile" data-track-location="footer">LinkedIn</a>
+        <a href="https://github.com/cendywang" target="_blank" rel="noopener noreferrer" data-track-event="outbound_click" data-track-name="github_profile" data-track-location="footer">GitHub</a>
         <span>© 2026 Cain Wang</span>
       </div>
     </div>
@@ -1086,127 +479,167 @@
       if (!isChinese) return;
 
       const zh = {
-        document_title: "Cain Wang — 智能体系统、记忆与 AI 基础设施",
-        meta_description: "Cain Wang 构建可靠的 AI 智能体系统，涵盖记忆策略、以证据为依据的工作流、Kubernetes 原生运行时和私有多智能体运营。",
-        og_description: "涵盖智能体记忆、有边界的工作流、私有运行时和真实多智能体运营的开源系统与研究原型。",
-        twitter_description: "构建可靠的 AI 智能体系统：从记忆策略与有边界的工作流，到私有运行时基础设施。",
+        document_title: "Cain Wang — AI 与 SaaS 生产系统架构师",
+        meta_description: "Cain Wang 为 AI 和 SaaS 团队提供生产就绪评估、软件架构咨询、架构风险与可靠性审计，以及面向国际化的技术准备度咨询。",
+        og_title: "Cain Wang — AI 与 SaaS 生产系统架构师",
+        og_description: "在架构、可靠性、安全性、可扩展性和成本风险演变为故障或重写之前，为 AI 与 SaaS 系统提供技术判断。",
+        twitter_title: "Cain Wang — AI 与 SaaS 生产系统架构师",
+        twitter_description: "面向 AI 与 SaaS 团队的 AI 生产就绪评估、软件架构咨询与可靠性判断。",
 
         skip_to_content: "跳至正文",
         primary_navigation: "主导航",
         home_link: "Cain Wang 首页",
-        nav_projects: "项目",
-        nav_approach: "方法",
+        nav_services: "服务",
+        nav_proof: "实证",
         nav_about: "关于",
+        nav_cta: "讨论你的系统 ↗",
 
-        hero_eyebrow: "独立 AI 系统构建者",
-        hero_title: "构建可靠的 <span>AI 智能体系统。</span>",
-        hero_copy: "我研究智能体记忆，构建以证据为依据的工作流与 Kubernetes 原生运行时，并持续运行一套私有多智能体内容系统。",
-        explore_projects: "浏览项目",
-        current_systems_work: "当前系统工作",
-        system_memory_policy: "智能体记忆策略",
-        system_memory_policy_detail: "保留、修订、检索、上下文预算",
-        system_bounded_workflows: "有边界的智能体工作流",
-        system_bounded_workflows_detail: "证据、验证、修复、人工审查",
-        system_private_runtime: "私有运行时基础设施",
-        system_private_runtime_detail: "Kubernetes、生命周期、状态、可观测性",
-        system_multi_agent_operations: "多智能体运营",
-        system_multi_agent_operations_detail: "日常扫描、研究、审校、发布交接",
-        hero_proof: "三个公开层级 · 一个私有运行实证",
+        hero_eyebrow: "生产系统架构师 · AI 与 SaaS",
+        hero_title: "把快速构建的软件变成 \u003Cspan\u003E真正可运行的生产系统。\u003C/span\u003E",
+        hero_intro: "AI 和 SaaS 团队比过去更快地构建软件。真正困难的是判断：当系统面对真实客户、真实流量、真实数据和真实故障时，它是否已经准备好。",
+        hero_body: "我帮助创始人、CTO 和工程团队，在架构、可靠性、可扩展性、安全性和成本风险演变为故障、重写或客户流失之前，把它们找出来。",
+        cta_discuss_system: "讨论你的系统 →",
+        cta_see_proof: "查看实证 ↓",
+        hero_footnote: "适合正在面对高成本技术不确定性的团队。",
+        hero_panel_kicker: "为承压系统提供的资深第二意见",
+        hero_panel_title: "找出代价最高的不确定性。",
+        hero_focus_architecture: "架构",
+        hero_focus_architecture_detail: "现在是哪一个决策正在制造风险？",
+        hero_focus_reliability: "可靠性",
+        hero_focus_reliability_detail: "系统和团队同时承压时，会发生什么？",
+        hero_focus_ai: "AI 系统",
+        hero_focus_ai_detail: "输出是否可检查、有边界，并且能够恢复？",
+        hero_focus_scale: "规模与成本",
+        hero_focus_scale_detail: "增长会让什么变得昂贵或脆弱？",
+        hero_panel_footer: "架构 · 可靠性 · AI 系统 · 成本",
 
-        featured_projects: "精选项目",
-        featured_projects_title: "一个问题空间。<br>三个系统层。",
-        featured_projects_intro: "每个项目都是可公开查验的成果。状态标签和局限性属于工作本身，而不是在声明之后隐藏的脚注。",
-        status_research: "研究",
-        status_experimental_alpha: "实验性 Alpha",
-        memory_policy_lab_summary: "一个实验性的参考实现与评估工具，用于探索智能体如何在上下文预算下保留、压缩、检索、修订和组装记忆。",
-        memory_policy_lab_demonstrates: "<strong>验证内容</strong>智能体记忆架构、显式上下文策略、来源谱系、确定性评估及受限供应商实验。",
-        memory_policy_lab_boundary: "<strong>当前边界</strong>研究软件；不宣称具备生产就绪、无限记忆或优于 RAG 的性能。",
-        view_repository: "查看仓库",
-        read_limitations: "阅读局限性",
-        status_applied_agent: "应用型智能体",
-        status_technical_preview: "v0.1.0 技术预览",
-        meeting_minutes_agent_summary: "一个有边界、以证据为依据的概念验证智能体，可将会议转录转化为带可追溯源文本片段的结构化纪要。",
-        meeting_minutes_agent_demonstrates: "<strong>验证内容</strong>上下文路由、精确证据验证、保守的未知项处理、一次修复、未解决事项隔离以及本地网页预览。",
-        meeting_minutes_agent_boundary: "<strong>当前边界</strong>本地技术预览；不是生产级会议平台或公开托管服务。",
-        preview_scope: "预览范围",
-        status_ai_infrastructure: "AI 基础设施",
-        status_preview: "v0.2.0 预览版",
+        when_kicker: "何时请我介入",
+        when_title: "团队会在这些关键时刻找我。",
+        when_intro: "正确的问题通常不是“要不要重写”，而是“真正的风险在哪里？哪些问题继续不处理会越来越昂贵？”",
+        problem_prototype_title: "AI 原型能工作，但没有人完全信任它进入生产。",
+        problem_prototype_detail: "在使用扩大之前，你需要看清故障模式、证据、权限、降级行为和运营缺口。",
+        problem_growth_title: "增长正在暴露过去看似无害的架构决策。",
+        problem_growth_detail: "延迟、可靠性、数据边界或云成本的变化，已经快过团队解释它们的速度。",
+        problem_incidents_title: "故障、云成本或技术债务增长得比团队解释它们更快。",
+        problem_incidents_detail: "你需要一次外部诊断，把系统行为与业务影响连接起来，并给出可执行的修复顺序。",
+        problem_rewrite_title: "团队准备重写或现代化，但还没有足够证据说明真正的问题。",
+        problem_rewrite_detail: "风险地图可以把必要的改变与昂贵的无效动作分开，让下一步决策有依据。",
+        problem_global_label: "国际化扩展",
+        problem_global_detail: "一个为单一运营环境构建的产品，现在需要适配国际基础设施与客户。",
+
+        services_kicker: "服务",
+        services_title: "三种降低技术风险的方式。",
+        services_intro: "围绕一个具体决策、系统风险或生产门槛展开的聚焦型软件架构咨询；不做泛化的人员补充。",
+        service_for: "适合",
+        service_question: "核心问题",
+        service_focus: "关注范围",
+        service_deliverables: "你将得到",
+        service_ai_duration: "5–7 个工作日",
+        service_ai_title: "AI 生产就绪评估",
+        service_ai_audience: "正在从原型或早期客户使用走向生产的 AI 应用或智能体系统。",
+        service_ai_promise: "当真实用户、真实数据和真实故障条件到来时，哪些部分可能失效？",
+        service_ai_focus: "故障模式、数据处理与降级路径；模型与工具边界；权限、评估、可观测性、部署、扩展和成本。",
+        service_ai_deliverables: "按优先级排列的生产阻塞项、风险地图、架构审查结论和修复计划。",
+        service_ai_cta: "讨论 AI 评估 →",
+        service_architecture_duration: "1–2 周",
+        service_architecture_title: "架构风险与可靠性审计",
+        service_architecture_audience: "正在变得脆弱、昂贵、难以变更、不可靠或难以扩展的系统。",
+        service_architecture_promise: "真正造成风险的是什么？哪些问题继续不处理会越来越昂贵？",
+        service_architecture_focus: "故障域与可扩展性；服务与数据边界；技术债务、部署风险、可观测性、云成本和现代化优先级。",
+        service_architecture_deliverables: "架构风险地图、优先级明确的问题清单、在有依据时给出的目标状态建议，以及修复顺序。",
+        service_architecture_cta: "申请架构审计 →",
+        service_global_duration: "1–2 周",
+        service_global_title: "面向国际化扩展的技术准备度",
+        service_global_audience: "准备将现有产品带入新的国际运营环境的科技公司。",
+        service_global_promise: "产品要负责任地扩展，架构和运营模式需要先改变什么？",
+        service_global_focus: "部署拓扑与区域策略；延迟、身份与数据流；运营、第三方依赖和 AI/模型基础设施。",
+        service_global_deliverables: "技术准备度判断、关键架构缺口和扩展工作的顺序。这是架构建议，不是法律或监管咨询。",
+        service_global_cta: "讨论国际化扩展 →",
+
+        proof_kicker: "生产规模实证",
+        proof_title: "在失败会带来后果的地方构建过系统。",
+        proof_intro: "审计背后的判断，来自那些稳定性、恢复能力和客户影响都不是理论问题的系统。",
+        case_label: "生产案例",
+        case_title: "Ele.me 长连接平台",
+        case_context: "前 Ele.me 高级架构师 · 业务关键的实时订单配送",
+        case_situation: "情况",
+        case_situation_text: "我曾负责一个业务关键长连接平台的稳定性，支持约 1000 万并发客户端连接。配送员依靠它获得实时订单。",
+        case_response: "应对",
+        case_response_text: "一次高峰流量故障中，异常断开路径导致 TCP 连接清理不完整并使内存持续增长。我们先通过受控滚动重启进行止损，让连接在节点间迁移，避免集群同时失效。随后我协调后端、Android、iOS、DevOps、架构和数据团队，围绕客户端保活、TCP/网络行为和服务端实现追查问题。",
+        case_outcome: "结果",
+        case_outcome_text: "连接生命周期缺陷得到修复，生命周期监控和稳定性控制得到加强；平台继续支持约 1000 万并发长连接，推送送达率约为 98%。平台在 Ele.me 被 Alibaba 收购后仍持续使用。",
+        case_lesson: "先稳定，再跨边界诊断；找到根因，并让同类故障变得可观测。",
+        metric_years: "软件工程与架构经验",
+        metric_people: "在平安带领过的工程组织人数",
+        metric_connections: "支持的并发长连接",
+        metric_delivery: "推送送达率",
+
+        ai_proof_kicker: "工程实证",
+        ai_proof_title: "证据先于修饰。",
+        ai_proof_intro: "当前 AI 工作之所以有价值，是因为它可以被检查：仓库展示了如何处理边界、证据、运行时行为和局限。",
+        public_repository: "公开仓库",
+        secondary_proof: "补充技术实证",
+        proof_relevance: "对客户的意义",
+        current_boundary: "当前边界",
+        meeting_summary: "一个以证据为依据的 AI 工作流，将会议转录转化为带可追溯来源片段的结构化纪要。",
+        meeting_relevance: "精确证据验证、保守的未知项处理、有边界的修复和未解决事项隔离，展示了如何让 AI 输出可检查，而不是盲目信任。",
+        meeting_boundary: "本地技术预览；不是生产级会议平台或托管服务。",
         lobsterbay_summary: "用于在隔离环境中托管和运行用户自有 AI 智能体运行时的开源 Kubernetes 控制平面。",
-        lobsterbay_demonstrates: "<strong>验证内容</strong>运行时生命周期管理、租户隔离、基于 NFS/PVC 的状态、飞书/Lark 通道、Helm 打包和可观测性。",
-        lobsterbay_boundary: "<strong>当前边界</strong>适用于预览和客户现场验证；企业 SSO 与生产级高可用仍在路线图中。",
-        readiness_notes: "就绪说明",
+        lobsterbay_relevance: "运行时生命周期、持久状态、租户与环境隔离、Helm/客户现场打包和可观测性，处理了从笔记本演示到可运营系统之间的差距。",
+        lobsterbay_boundary: "预览和客户现场验证；企业 SSO 与生产级高可用仍在路线图中。",
+        memory_summary: "一个实验性参考实现与评估工具，用于探索智能体如何在上下文预算下保留、压缩、检索和修订记忆。",
+        memory_relevance: "它把上下文策略、来源谱系和确定性评估变成显式的设计问题。",
+        memory_boundary: "研究软件；不宣称具备生产就绪或优于 RAG 的性能。",
+        view_repository: "查看仓库 ↗",
+        preview_scope: "查看预览范围 ↗",
+        readiness_notes: "查看就绪说明 ↗",
+        read_limitations: "阅读局限性 ↗",
+        private_workflow_label: "私有运营工作流",
+        private_workflow_title: "Hermes + OpenClaw：在实际使用中反复运行。",
+        private_workflow_description: "我使用一套自托管多智能体工作流进行研究、审校和发布交接。这证明我在实际运营这些系统，而不是宣称这套私有工作流软件已经适合企业生产环境。",
 
-        system_view: "系统视角",
-        system_view_title: "记忆。工作。运行。",
-        system_view_intro: "这些项目构成对可靠智能体的一次连续探索：从内部状态决策，到可审计的工作，再到真实世界的运行。",
-        remember: "记忆",
-        memory_policy: "记忆策略",
-        memory_policy_question: "智能体应保留、修订、压缩、检索什么，并将哪些信息放入下一次有边界的请求？",
-        work: "工作",
-        bounded_workflows: "有边界的工作流",
-        bounded_workflows_question: "智能体如何在保留证据、明确不确定性和人工审查路径的同时，产出有用结果？",
-        run: "运行",
-        runtime_infrastructure: "运行时基础设施",
-        runtime_infrastructure_question: "如何将用户自有的智能体运行时部署、隔离、观测并适配到私有环境？",
+        who_kicker: "合作对象",
+        who_title: "从一个有后果的决策开始对话。",
+        who_intro: "你不需要另一份技术清单，而需要一位资深工程视角，帮你判断什么必须保护、什么应该改变、什么可以等待。",
+        audience_founders_title: "AI 与 SaaS 创始人 / CTO",
+        audience_founders_body: "当客户使用增长，需要一项创始团队可以承担的生产系统决策时。",
+        audience_leaders_title: "工程负责人",
+        audience_leaders_body: "当可靠性、架构或现代化工作需要独立诊断和优先级明确的路径时。",
+        audience_agencies_title: "软件与 AI 服务机构",
+        audience_agencies_body: "当项目在高风险时刻需要外部 Principal Architect 或资深技术顾问及时介入时。",
+        audience_chinese_title: "正在国际化扩展的中国科技公司",
+        audience_chinese_body: "当现有产品需要针对新的基础设施、客户和区域制定清晰的技术运营方案时。",
 
-        operating_proof: "运行实证",
-        operating_proof_title: "不是产品演示。<br>而是正在运行的个人系统。",
-        operating_proof_intro: "Hermes 在此作为真实智能体运营的证据呈现，并非开源发布或商业产品声明。",
-        private_system: "私人系统",
-        active_since_april_2026: "自 2026 年 4 月起活跃使用",
-        hermes_pipeline_description: "一个自托管、单用户的多智能体工作流，用于每日新闻扫描、深度研究、文章撰写、素材生产、审校及飞书云文档发布。",
-        evidence_snapshot: "<strong>证据快照 · 2026-07-21</strong><br>文件、进程、配置、日志与输出证据。",
-        hermes_evidence_metrics: "Hermes 证据快照指标",
-        since_apr_2026: "自 2026 年 4 月",
-        active_personal_use: "个人持续使用",
-        daily_topic_briefs: "每日选题简报",
-        end_to_end_pipeline_runs: "端到端流水线运行",
-        articles_approved: "已审核通过的文章",
-        feishu_documents_published: "已发布的飞书文档",
-        mp4_files_produced: "已产出的 MP4 文件",
-        what_is_real: "真实情况",
-        what_is_real_description: "七个子智能体配置支持一套由文件系统驱动、分五阶段执行的 SOP；其中五个已有已验证的派发输出。十份驳回报告证明审核和返工在实际发生。完成报告会依据文件和元数据核验，而非照单全收。",
-        human_boundary: "人工边界",
-        human_boundary_description: "选题批准、公开渠道发布、法律责任和异常恢复仍由操作者负责。系统不会自动连接公开平台。",
-        current_limitation: "当前局限",
-        current_limitation_description: "这些配置共用一个底层 LLM。系统为单用户设计，没有多租户权限或 SLA，并且可能在缺少操作者干预时停滞。",
-        why_it_matters: "意义所在",
-        why_it_matters_description: "它证明了智能体编排、审查循环、有状态文件交接、驳回与返工的持续使用，而不仅是一次性的多智能体演示。",
-        proof_note: "私有实现 · 无公开仓库 · 不作为企业就绪或完全自主的系统呈现。",
+        engagement_kicker: "合作方式",
+        engagement_title: "从不确定性到决策的短路径。",
+        engagement_intro: "工作围绕你需要回答的问题、现有证据以及它要支持的下一项决策来设计。",
+        step_scope_title: "界定",
+        step_scope_body: "明确要做出的决策或代价高昂的技术不确定性。",
+        step_inspect_title: "审查",
+        step_inspect_body: "审查相关架构、代码、基础设施、运行证据和团队背景。",
+        step_decide_title: "判断",
+        step_decide_body: "按业务和工程影响梳理发现，并用清晰证据说明权衡。",
+        step_fix_title: "必要时修复",
+        step_fix_body: "客户可以将报告带回团队，也可以让我以外部 Principal Architect（资深架构顾问）身份参与关键修复。",
+        engagement_note: "必要时可以深入实施。以明确的技术负责人角色参与，不做泛化的人员补充。",
 
-        current_explorations: "当前探索",
-        current_explorations_title: "超越公开仓库。",
-        current_explorations_intro: "早期工作被刻意与已发布项目分开；这些是正在推进的方向，而非产品就绪声明。",
-        hardening_productization: "强化与产品化",
-        hermes_digital_worker_description: "持续演进个人内容流水线，使任务状态更清晰、超时处理更可靠、工具边界更安全、部署可复用，并探索业务专用的数字员工模式。",
-        in_development: "开发中",
-        open_digital_mentor_description: "专家知识蒸馏与交互式数字导师体验，将洁净室和资产授权边界作为首要设计约束。",
-        applied_systems: "应用系统",
-        enterprise_knowledge_agents: "组织知识智能体",
-        enterprise_knowledge_agents_description: "面向政策检索、客户服务、专家支持、审核及结构化运营的知识助手和有边界的业务智能体。",
+        about_kicker: "为什么是我",
+        about_title: "传统生产工程 \u003Cspan\u003E×\u003C/span\u003E 现代 AI 系统。",
+        about_lede: "约 15 年大型生产系统与当前 AI 系统经验，做过会真正影响运营的架构决策。",
+        about_body: "作为技术顾问，我在创始人与工程团队之间工作：把业务压力转化为系统级诊断，再深入到足以让建议真正可执行的实现细节。",
+        about_body_2: "我的经历包括曾任 Alibaba P8、Ele.me 高级架构师，在平安相关业务带领过 50+ 人的工程组织，以及当前围绕可检查证据和明确边界开展的 AI 系统实践。",
+        selected_background: "精选背景",
+        credibility_label: "精选背景",
+        credibility_years: "软件工程与架构经验",
+        credibility_alibaba: "大型科技组织中的工作经历",
+        credibility_team: "在平安带领过的工程组织成员",
+        credibility_current_value: "当前",
+        credibility_current: "AI 系统、以证据为依据的工作流与私有运行时",
 
-        working_principles: "工作原则",
-        working_principles_title: "证据先于修饰。",
-        working_principles_intro: "目标不是把原型说得成熟，而是让系统行为、证据、权衡和当前边界都可被检视。",
-        evidence_over_hype: "证据优先于炒作",
-        evidence_over_hype_description: "将公开声明与代码、测试、追踪记录、评估、可复现实验或清晰记录的实验关联起来。",
-        explicit_boundaries: "明确边界",
-        explicit_boundaries_description: "Alpha、预览和研究阶段的工作应如实描述，不应借用未来路线图的可信度。",
-        systems_thinking: "系统思维",
-        systems_thinking_description: "智能体行为、上下文、评估、基础设施、安全、运营和组织约束，应在同一个设计讨论中统筹考虑。",
-
-        about: "关于",
-        about_title: "产品判断。<br>工程深度。<br>交付纪律。",
-        about_description: "我拥有十余年软件产品和工程团队建设经验，近年专注于 LLM 应用、智能体系统、私有模型基础设施与 AI 应用交付。",
-        about_description_2: "我的工作在研究问题与交付约束之间穿行：定义问题、构建可测试的参考路径、让不确定性可见，并判断一个系统在被呈现为生产就绪之前必须证明什么。",
-        areas_of_expertise: "专长领域",
-        agent_architecture: "智能体架构",
-        llm_systems: "LLM 系统",
-        context_memory: "上下文与记忆",
-        rag_knowledge: "RAG 与知识系统",
-        private_deployment: "私有部署",
-        product_delivery: "产品与交付",
-        footer_tagline: "构建可靠的 AI 智能体系统。",
+        final_kicker: "从不确定性开始",
+        final_title: "不确定你需要重写、修复，还是只需要第二意见？",
+        final_body: "告诉我你构建了什么、正在发生什么变化，以及你担心什么。我会告诉你这是否是我能帮忙解决的问题。",
+        footer_tagline: "AI 与 SaaS 生产系统架构师。",
         email: "电子邮件"
       };
 
@@ -1231,9 +664,10 @@
       };
 
       setMetaContent('meta[name="description"]', zh.meta_description);
-      setMetaContent('meta[property="og:title"]', zh.document_title);
+      setMetaContent('meta[property="og:title"]', zh.og_title);
       setMetaContent('meta[property="og:description"]', zh.og_description);
-      setMetaContent('meta[name="twitter:title"]', zh.document_title);
+      setMetaContent('meta[property="og:locale"]', "zh_CN");
+      setMetaContent('meta[name="twitter:title"]', zh.twitter_title);
       setMetaContent('meta[name="twitter:description"]', zh.twitter_description);
     })();
   </script>
