@@ -301,6 +301,7 @@
             </div>
           </div>
           <p class="case-lesson" data-i18n="case_lesson">Contain first. Diagnose across boundaries. Fix the system, not just the symptom.</p>
+          <p class="case-resource"><a class="quiet-link" href="assets/cases/production-rescue-10m-connections.pdf" target="_blank" rel="noopener noreferrer" data-track-event="proof_pdf_click" data-track-name="production_rescue_pdf" data-track-location="production_proof" data-i18n="case_pdf_cta">Read the 2-page production rescue case ↗</a></p>
         </article>
 
         <div class="metric-grid">
@@ -312,6 +313,82 @@
       </div>
     </section>
 
+    <section class="section architecture-cases-section" id="architecture-cases" aria-labelledby="architecture-cases-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="architecture_cases_kicker">Selected architecture cases</p>
+            <h2 id="architecture-cases-title" data-i18n="architecture_cases_title">Selected Architecture Cases</h2>
+          </div>
+          <p data-i18n="architecture_cases_intro">The production rescue case sits within a broader record of architecture decisions made under real scale, reliability and observability constraints.</p>
+        </div>
+
+        <div class="architecture-case-grid">
+          <article class="architecture-case-card">
+            <span class="case-step" data-i18n="architecture_evolution_type">Architecture evolution</span>
+            <h3 data-i18n="architecture_evolution_title">From Single-DC Limits to Geographic Active-Active</h3>
+            <div class="architecture-case-block">
+              <span class="small-label" data-i18n="architecture_case_problem">Problem</span>
+              <p data-i18n="architecture_evolution_problem">Physical capacity at the Beijing site was effectively exhausted, while one data center remained a large failure domain.</p>
+            </div>
+            <div class="architecture-case-block">
+              <span class="small-label" data-i18n="architecture_case_decision">Decision</span>
+              <p data-i18n="architecture_evolution_decision">As Ele.me evolved toward geographic active-active, my work at the mobile / persistent-connection boundary covered zone-aware access, routing and failover considerations, intelligent DNS and server-initiated push location. The company-level architecture was broader; I did not own Ele.me's DRC database-replication platform.</p>
+            </div>
+            <div class="architecture-case-block architecture-case-why">
+              <span class="small-label" data-i18n="architecture_case_why">Why it matters</span>
+              <p data-i18n="architecture_evolution_why">Scale requires explicit locality and failure boundaries—not simple duplication.</p>
+            </div>
+            <a class="architecture-case-link" href="assets/cases/architecture-evolution-active-active.pdf" target="_blank" rel="noopener noreferrer" data-track-event="proof_pdf_click" data-track-name="active_active_case_pdf" data-track-location="architecture_cases" data-i18n="architecture_case_cta">Read the architecture case ↗</a>
+          </article>
+
+          <article class="architecture-case-card">
+            <span class="case-step" data-i18n="mobile_apm_type">Production observability</span>
+            <h3 data-i18n="mobile_apm_title">Seeing Failures Before They Reached the Data Center</h3>
+            <div class="architecture-case-block">
+              <span class="small-label" data-i18n="architecture_case_problem">Problem</span>
+              <p data-i18n="mobile_apm_problem">Server-side monitoring started too late to explain mobile crashes, interaction failures, networking problems and performance degradation on the phone.</p>
+            </div>
+            <div class="architecture-case-block">
+              <span class="small-label" data-i18n="architecture_case_decision">Decision</span>
+              <p data-i18n="mobile_apm_decision">I led mobile architecture and infrastructure work including APM, instrumentation and the client-side monitoring foundation, extending visibility from the app edge through telemetry transport into real-time and forensic paths.</p>
+            </div>
+            <div class="architecture-case-block architecture-case-why">
+              <span class="small-label" data-i18n="architecture_case_why">Why it matters</span>
+              <p data-i18n="mobile_apm_why">If failure can happen outside the server boundary, observability has to start outside it too.</p>
+            </div>
+            <a class="architecture-case-link" href="assets/cases/mobile-apm-observability.pdf" target="_blank" rel="noopener noreferrer" data-track-event="proof_pdf_click" data-track-name="mobile_apm_case_pdf" data-track-location="architecture_cases" data-i18n="architecture_case_cta">Read the architecture case ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sample-section" id="sample-review" aria-labelledby="sample-review-title">
+      <div class="shell">
+        <div class="sample-card">
+          <div class="sample-heading">
+            <p class="section-label" data-i18n="sample_kicker">Sample deliverable</p>
+            <h2 id="sample-review-title" data-i18n="sample_title">What an Architecture Risk Review actually produces.</h2>
+          </div>
+          <div class="sample-copy">
+            <p data-i18n="sample_intro">A review should not maximize architectural purity or become a generic recommendation deck. It should make a small number of consequential decisions clearer.</p>
+            <div class="decision-chain" aria-label="Sample deliverable flow" data-i18n-aria-label="sample_chain_label">
+              <span data-i18n="sample_risk_map">Risk Map</span><span aria-hidden="true">→</span><span data-i18n="sample_decision">Decision</span><span aria-hidden="true">→</span><span data-i18n="sample_action">Action</span>
+            </div>
+            <ol class="sample-output-list">
+              <li><span class="sample-output-number">01</span><span data-i18n="sample_output_summary">Executive risk summary</span></li>
+              <li><span class="sample-output-number">02</span><span data-i18n="sample_output_map">Architecture risk map</span></li>
+              <li><span class="sample-output-number">03</span><span data-i18n="sample_output_log">Decision log</span></li>
+              <li><span class="sample-output-number">04</span><span data-i18n="sample_output_sequence">Remediation sequence</span></li>
+              <li><span class="sample-output-number">05</span><span data-i18n="sample_output_not_rebuild">What not to rebuild</span></li>
+            </ol>
+            <p class="sample-disclosure" data-i18n="sample_disclosure">Illustrative sample — not based on a specific client engagement.</p>
+            <a class="text-cta" href="assets/cases/sample-architecture-risk-review.pdf" target="_blank" rel="noopener noreferrer" data-track-event="proof_pdf_click" data-track-name="sample_architecture_review_pdf" data-track-location="sample_review" data-i18n="sample_cta">View a Sample Architecture Risk Review ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="ai-proof" aria-labelledby="ai-proof-title">
       <div class="shell">
         <div class="section-heading">
@@ -319,7 +396,7 @@
             <p class="section-label" data-i18n="ai_proof_kicker">Engineering proof</p>
             <h2 id="ai-proof-title" data-i18n="ai_proof_title">Evidence before adjectives.</h2>
           </div>
-          <p data-i18n="ai_proof_intro">AI makes impressive demos easy. Production systems require a different standard: claims connected to evidence, tests, traces, evaluations and explicit limitations.</p>
+          <p data-i18n="ai_proof_intro">Tools such as Cursor, Claude and Codex compress the distance from idea to code. They do not remove architecture, failure modes, security boundaries, cost or ownership. Current work stays tied to evidence, tests, traces, evaluations and explicit limitations.</p>
         </div>
 
         <div class="proof-project-grid">
@@ -406,6 +483,45 @@
           <p class="small-label" data-i18n="about_note_label">Operating perspective</p>
           <p data-i18n="about_note">Titles are context. The useful part is making decisions where systems have to keep running and teams have to keep moving.</p>
         </aside>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label" data-i18n="faq_kicker">Common questions</p>
+            <h2 id="faq-title" data-i18n="faq_title">Before we start.</h2>
+          </div>
+          <p data-i18n="faq_intro">A few practical answers about how I work with an existing engineering team.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq_team_question">Do you replace our engineering team?</summary>
+            <p data-i18n="faq_team_answer">No. I work with the existing team, adding senior technical judgment where the risk is consequential—not providing generic staff augmentation.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_code_question">Do you write code?</summary>
+            <p data-i18n="faq_code_answer">When useful, yes—on critical paths and high-risk fixes, not as a replacement for day-to-day product development.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_ai_code_question">Can you review systems built heavily with Cursor, Claude or Codex?</summary>
+            <p data-i18n="faq_ai_code_answer">Yes. The question is not who generated the code; it is whether the system has understandable boundaries, failure behavior, operational visibility and maintainable architecture.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_rewrite_question">Will you recommend a rewrite?</summary>
+            <p data-i18n="faq_rewrite_answer">Only when evidence shows that a rewrite will reduce an important risk. Usually we isolate the highest-risk paths and improve visibility first.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_scope_question">Do we need to share our entire codebase?</summary>
+            <p data-i18n="faq_scope_answer">Not necessarily. We scope the review around the relevant decisions, failure modes and operating evidence.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_continue_question">Can you stay involved after the review?</summary>
+            <p data-i18n="faq_continue_answer">Yes. When deeper remediation is useful, I can stay involved as an external or Fractional Principal Architect.</p>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -552,13 +668,47 @@
         case_outcome: "结果",
         case_outcome_text: "连接生命周期缺陷得到修复，生命周期监控和稳定性控制得到加强；平台继续支持约 1000 万并发长连接，推送送达率约为 98%。平台在 Ele.me 被 Alibaba 收购后仍持续使用。",
         case_lesson: "先控制影响。跨边界建立证据。修复系统，而不只是症状。",
+        case_pdf_cta: "阅读 2 页生产救援案例 ↗",
         metric_people: "在平安带领过的工程组织",
         metric_connections: "支持的并发长连接",
         metric_delivery: "推送送达率",
 
+        architecture_cases_kicker: "精选架构案例",
+        architecture_cases_title: "精选架构案例",
+        architecture_cases_intro: "生产救援案例背后，还有一组在真实规模、可靠性和可观测性约束下做出的架构决策。",
+        architecture_evolution_type: "架构演进",
+        architecture_evolution_title: "从单数据中心限制到地理分区 Active-Active",
+        architecture_case_problem: "问题",
+        architecture_evolution_problem: "北京站点的物理容量基本耗尽，而单一数据中心仍然意味着一个过大的故障域。",
+        architecture_case_decision: "决策",
+        architecture_evolution_decision: "Ele.me 向地理分区 Active-Active 演进时，我负责移动端与长连接边界的相关工作，包括分区感知接入、路由与故障切换、智能 DNS 和服务端主动推送定位。公司级架构范围更大；Ele.me 的 DRC 数据库复制平台并不由我负责。",
+        architecture_case_why: "为什么重要",
+        architecture_evolution_why: "规模化架构首先要定义本地性和故障边界，而不是简单复制一切。",
+        mobile_apm_type: "生产可观测性",
+        mobile_apm_title: "在故障到达数据中心之前看见它",
+        mobile_apm_problem: "服务端监控只能解释流量到达数据中心之后的情况，无法解释手机端崩溃、交互失败、网络问题和性能下降。",
+        mobile_apm_decision: "我带领移动架构与基础设施工作，包括 APM、埋点和客户端监控基础设施，将可见性从应用边缘延伸到遥测传输、实时处理和离线取证路径。",
+        mobile_apm_why: "如果故障可能发生在服务端边界之外，可观测性也必须从边界之外开始。",
+        architecture_case_cta: "阅读架构案例 ↗",
+
+        sample_kicker: "交付样例",
+        sample_title: "一次架构风险审查，最终会产出什么？",
+        sample_intro: "审查不应追求架构纯粹性，也不应变成一套泛泛的建议文档。它应该让少数几个关键决策变得清晰。",
+        sample_chain_label: "交付样例流程",
+        sample_risk_map: "风险地图",
+        sample_decision: "决策",
+        sample_action: "行动",
+        sample_output_summary: "管理层风险摘要",
+        sample_output_map: "架构风险地图",
+        sample_output_log: "决策记录",
+        sample_output_sequence: "修复顺序",
+        sample_output_not_rebuild: "不该重建的部分",
+        sample_disclosure: "示例材料，不对应某个具体客户项目。",
+        sample_cta: "查看架构风险审查交付样例 ↗",
+
         ai_proof_kicker: "工程实证",
         ai_proof_title: "证据先于修饰。",
-        ai_proof_intro: "AI 很容易做出令人印象深刻的演示。生产系统需要另一套标准：让主张与证据、测试、追踪、评估和明确局限相连接。",
+        ai_proof_intro: "Cursor、Claude 和 Codex 这样的工具，正在压缩从想法到代码的距离。但它们不会消除架构、故障模式、安全边界、成本或系统归属问题。当前工程仍以证据、测试、追踪、评估和明确局限为准。",
         public_repository: "公开仓库",
         proof_relevance: "对客户的意义",
         current_boundary: "当前边界",
@@ -597,6 +747,22 @@
         about_body_2: "经历包括 Alibaba P8、Ele.me 高级架构工作，以及在平安带领一个工程组织。现在，我持续亲手构建和审查有明确证据与边界的 AI 系统。",
         about_note_label: "工作视角",
         about_note: "头衔只是背景。真正有用的是：在系统必须持续运行、团队必须持续推进时做出判断。",
+
+        faq_kicker: "常见问题",
+        faq_title: "开始前，几个实际问题。",
+        faq_intro: "关于如何与现有工程团队一起工作的几个直接回答。",
+        faq_team_question: "你会替代我们的工程团队吗？",
+        faq_team_answer: "不会。我与现有团队一起工作，在关键风险上补充资深技术判断，不做泛化的人员补充。",
+        faq_code_question: "你会写代码吗？",
+        faq_code_answer: "必要时可以，主要深入关键路径和高风险修复，而不是接管日常产品开发。",
+        faq_ai_code_question: "可以审查大量使用 Cursor、Claude 或 Codex 构建的系统吗？",
+        faq_ai_code_answer: "可以。重点不是代码由谁生成，而是系统是否有清晰边界、可理解的故障行为、运营可见性和可维护架构。",
+        faq_rewrite_question: "你会建议重写吗？",
+        faq_rewrite_answer: "只有证据表明重写能够降低重要风险时才会建议。通常先隔离高风险路径、提升可见性，再做判断。",
+        faq_scope_question: "需要我们开放整个代码库吗？",
+        faq_scope_answer: "不一定。我们会围绕相关决策、故障模式和运行证据确定审查范围。",
+        faq_continue_question: "审查之后可以继续参与吗？",
+        faq_continue_answer: "可以。需要深入修复时，我可以作为外部或 Fractional Principal Architect 继续参与。",
 
         final_kicker: "从不确定性开始",
         final_title: "不确定你需要重写、修复，还是只需要第二意见？",
