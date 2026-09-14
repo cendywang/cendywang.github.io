@@ -261,6 +261,11 @@ h3 {
   align-items: center;
 }
 
+.hero-grid > div,
+.about-grid > * {
+  min-width: 0;
+}
+
 .eyebrow,
 .section-label,
 .small-label,
@@ -287,6 +292,7 @@ h3 {
   font-size: clamp(56px, 7.6vw, 96px);
   font-weight: 780;
   line-height: 0.98;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 span {
@@ -668,6 +674,72 @@ h3 {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
+}
+
+.working-model-section {
+  padding-top: 76px;
+  padding-bottom: 76px;
+  background: rgba(3, 10, 18, 0.16);
+}
+
+.working-model-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(35px, 7vw, 100px);
+  align-items: start;
+  padding: 31px 34px;
+  border: 1px solid rgba(87, 230, 177, 0.25);
+  border-radius: var(--radius-lg);
+  background: rgba(10, 25, 42, 0.62);
+}
+
+.working-model-heading h2 {
+  max-width: 510px;
+  margin: 0;
+  font-size: clamp(31px, 4vw, 52px);
+  line-height: 1.04;
+}
+
+.working-model-copy p {
+  max-width: 680px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.working-model-copy p:first-child {
+  color: var(--text-soft);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.lifecycle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: center;
+  margin: 22px 0 20px;
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.lifecycle span[aria-hidden="true"] {
+  color: var(--muted);
+}
+
+.working-model-copy .working-model-emphasis {
+  margin-top: 19px;
+  color: var(--text-soft);
+  font-weight: 700;
 }
 
 .proof-section {
@@ -1163,6 +1235,23 @@ h3 {
   line-height: 1.6;
 }
 
+.about-workshop {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.about-workshop .small-label {
+  margin-bottom: 8px;
+}
+
+.about-workshop p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .about-section {
   background: rgba(3, 10, 18, 0.2);
 }
@@ -1378,7 +1467,8 @@ h3 {
   }
 
   .continuation-card,
-  .specialized-card {
+  .specialized-card,
+  .working-model-card {
     grid-template-columns: 1fr;
     gap: 22px;
   }
@@ -1513,22 +1603,39 @@ h3 {
 }
 
 @media (max-width: 440px) {
-  .brand-name {
-    font-size: 14px;
-  }
-
-  .site-nav {
+  .nav {
     gap: 8px;
-    font-size: 10px;
   }
 
   .nav-right {
+    flex: 1 1 auto;
+    gap: 4px;
+    justify-content: flex-end;
+  }
+
+  .site-nav {
+    min-width: 0;
     gap: 6px;
+    font-size: 9px;
   }
 
   .language-switch {
-    gap: 3px;
-    font-size: 10px;
+    gap: 2px;
+    font-size: 9px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+  }
+
+  .brand-name {
+    font-size: 13px;
   }
 
   .hero-actions .button,
@@ -1543,6 +1650,7 @@ h3 {
   .sample-card,
   .continuation-card,
   .specialized-card,
+  .working-model-card,
   .about-note {
     padding: 23px;
   }
